@@ -16,7 +16,7 @@ This repository provides scripts for TRIPLET Task 2. The main script processes a
 
 ### Prerequisites
 
-- Python 3.11+
+- Python 3.7+
 - [Poetry](https://python-poetry.org/) for dependency management.
 
 ### Installation
