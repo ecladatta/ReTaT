@@ -95,7 +95,6 @@ def iter_annotations(root: Dict[str, Any]) -> Iterable[Dict[str, Optional[str]]]
             p_val = pred.get("annotationValue")
             o_val = obj.get("annotationValue")
 
-            # warn if any missing
             if s_val is None or p_val is None or o_val is None:
                 LOG.warning(
                     "Missing SPO element in annotation %s of document %s",
