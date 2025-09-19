@@ -76,3 +76,54 @@ Each output folder contains:
   - `tables`: A list of tables extracted from the document.
 
   This file contains all documents referenced by the annotations, including their extracted texts and tables.
+
+## Evaluation
+
+To evaluate predicted triplets against gold standard annotations, run:
+
+```bash
+poetry run python -m triplet_task2.evaluate <predicted> <gold> [options]
+```
+
+Replace `<predicted>` and `<gold>` with the paths to the respective `annotations.csv` files.
+
+### Evaluation Command-line Arguments
+
+| Argument                       | Description                                                                  |
+| ------------------------------ | ---------------------------------------------------------------------------- |
+| `<predicted>`                  | Path to predicted annotations CSV file (required)                            |
+| `<gold>`                       | Path to gold standard annotations CSV file (required)                        |
+| `--relations <REL> [<REL>...]` | List of valid relations (default: predefined business relations)             |
+| `-o, --output <OUTPUT>`        | Output file for evaluation results in JSON format (default: print to stdout) |
+| `-v, --verbose`                | Increase verbosity (`-v`, `-vv`)                                             |
+| `-h, --help`                   | Show help message and exit                                                   |
+
+### Evaluation Output
+
+The evaluation script outputs a JSON object with metrics for different matching strategies:
+
+```json
+{
+  "Exact matching": {
+    "precision": 0,
+    "recall": 0.0,
+    "f1": 0
+  },
+  "Partial matching (head+tail)": {
+    "precision": 0,
+    "recall": 0.0,
+    "f1": 0
+  },
+  "Partial matching (relation + 1 entity)": {
+    "precision": 0,
+    "recall": 0.0,
+    "f1": 0
+  }
+}
+```
+
+- **Exact matching**: All three elements (subject, predicate, object) must match.
+- **Partial matching (head+tail)**: Both subject and object match, regardless of predicate.
+- **Partial matching (relation + 1 entity)**: Relation and at least one entity (subject or object) match.
+
+Each metric includes `precision`, `recall`, and `f1` score.
