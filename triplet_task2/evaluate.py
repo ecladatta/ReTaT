@@ -202,32 +202,22 @@ def parse_args() -> argparse.Namespace:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python evaluate_triplets.py predicted.csv gold.csv
-  python evaluate_triplets.py predicted.csv gold.csv --relations client_of product_or_service_of
-  python evaluate_triplets.py predicted.csv gold.csv -o results.json -v
+  python evaluate_triplets.py predicted.csv --gold gold.csv
+  python evaluate_triplets.py predicted.csv --gold gold.csv --relations relations.csv
         """,
     )
 
     p.add_argument(
         "predicted", type=Path, help="Path to predicted annotations CSV file"
     )
-    p.add_argument("gold", type=Path, help="Path to gold standard annotations CSV file")
     p.add_argument(
-        "--relations",
-        type=str,
-        nargs="+",
-        default=[
-            "acquired_by",
-            "brand_of",
-            "client_of",
-            "collaboration",
-            "merged_with",
-            "product_or_service_of",
-            "shareholder_of",
-            "subsidiary_of",
-            "traded_on",
-        ],
-        help="List of valid relations (default: predefined business relations)",
+        "--gold",
+        required=True,
+        type=Path,
+        help="Path to gold standard annotations CSV file",
+    )
+    p.add_argument(
+        "--relations", required=True, type=Path, help="Path to valid relations file"
     )
     p.add_argument(
         "-o",
@@ -255,6 +245,24 @@ def setup_logging(verbosity: int) -> None:
     elif verbosity >= 2:
         level = logging.DEBUG
     logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
+
+
+def load_relations_csv(path: Path) -> List[str]:
+    """Load valid relations from CSV file, ignoring the first row (header)."""
+    relations = []
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            next(reader, None)  # Skip header row
+            for row in reader:
+                if row:
+                    relations.append(row[0].strip())
+    except Exception as e:
+        LOG.error("Failed to read relations CSV: %s", e)
+        raise SystemExit(1)
+
+    LOG.info("Loaded %d valid relations from %s", len(relations), path)
+    return relations
 
 
 def load_annotations_csv(path: Path) -> List[Dict[str, str]]:
@@ -326,7 +334,9 @@ def main() -> None:
     setup_logging(args.verbose)
 
     LOG.info("Starting triplet evaluation")
-    LOG.info("Valid relations: %s", args.relations)
+
+    relations = load_relations_csv(args.relations)
+    LOG.info("Valid relations: %s", relations)
 
     pred_annotations = load_annotations_csv(args.predicted)
     gold_annotations = load_annotations_csv(args.gold)
@@ -349,7 +359,7 @@ def main() -> None:
 
     LOG.info("Evaluating %d documents", len(pred_triplets))
 
-    results = evaluation_triplets(pred_triplets, gold_triplets, args.relations)
+    results = evaluation_triplets(pred_triplets, gold_triplets, relations)
 
     if args.output:
         with args.output.open("w", encoding="utf-8") as f:
