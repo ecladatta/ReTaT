@@ -7,6 +7,8 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
+from wikitextparser import remove_markup
+
 LOG = logging.getLogger(__name__)
 
 
@@ -71,6 +73,14 @@ def extract_documents(root: Dict[str, Any]) -> List[Dict[str, Any]]:
                 "Tables are not a list in extraction metadata for document %s", doc_id
             )
             continue
+        for text in texts:
+            raw_value = text.get("value", "")
+            clean_value = remove_markup(raw_value)
+            text["value"] = clean_value.strip()
+        for table in tables:
+            raw_content = table.get("tableContent", "")
+            clean_content = remove_markup(raw_content)
+            table["tableContent"] = clean_content.strip()
         docs.append(
             {
                 "id": doc_id,
@@ -92,7 +102,7 @@ def iter_annotations(root: Dict[str, Any]) -> Iterable[Dict[str, Optional[str]]]
             obj = ann.get("object", {}) or {}
 
             s_val = subj.get("annotationValue")
-            p_val = pred.get("annotationValue")
+            p_val = pred.get("entityValue")
             o_val = obj.get("annotationValue")
 
             if s_val is None or p_val is None or o_val is None:

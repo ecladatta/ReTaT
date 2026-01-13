@@ -4,8 +4,9 @@ version = "0.1.0"
 description = ""
 authors = []
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 dependencies = [
+    "wikitextparser (>=0.56.4,<0.57.0)"
 ]
 
 

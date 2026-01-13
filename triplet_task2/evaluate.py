@@ -16,109 +16,138 @@ LOG = logging.getLogger(__name__)
 
 
 def evaluation_triplets(pred, gold, relations_possibles):
-    """
-    Evaluate triplet predictions against gold standard.
+    import re
 
-    Args:
-        pred: List of lists containing predicted triplets in format "subject; relation; object"
-        gold: List of lists containing gold standard triplets in format "subject; relation; object"
-        relations_possibles: List of valid relations for filtering
+    def normalize_entity(e):
+        return re.sub(r"\s+", "", e.lower())
 
-    Returns:
-        Dict with evaluation metrics for exact, partial, and relation-entity matching
-    """
-    exact_tp = (
-        0  # On stocke dans ce variable nombre de vrais positifs pour le match exact
-    )
-    partial_tp = 0  # On stocke dans ce variable  le nombre de vrais positifs pour le match partiel (sujet+objet)
-    partial_rel_tp = 0  # On stocke dans ce variable le nombre de vrais positifs pour le match partiel (relation correcte + une entité correcte)
-    total_pred = 0  # On stocke dans ce variable le nombre total de triplets prédits (triplets du participant)
-    total_gold = (
-        0  # On stocke dans ce variable le nombre total de triplets annotés (gold)
-    )
+    def entities_equal(e1, e2):
+        e1, e2 = normalize_entity(e1), normalize_entity(e2)
+        return e1 == e2 or e1 in e2 or e2 in e1
 
-    # ==================================================
-    # Filtrage des triplets prédits : on conserve uniquement les triplets dont la relation appartient à la liste des relations possibles
-    # =================================================
+    def triples_equal(t1, t2):
+        h1, r1, t1_ = t1
+        h2, r2, t2_ = t2
+
+        if r1 != r2:
+            return False
+
+        if entities_equal(h1, h2) and entities_equal(t1_, t2_):
+            return True
+        if entities_equal(h1, t2_) and entities_equal(t1_, h2):
+            return True
+
+        return False
+
+    def entities_pair_equal(p1, p2):
+        h1, t1_ = p1
+        h2, t2_ = p2
+
+        if entities_equal(h1, h2) and entities_equal(t1_, t2_):
+            return True
+        if entities_equal(h1, t2_) and entities_equal(t1_, h2):
+            return True
+        return False
+
+    exact_tp = 0
+    partial_tp = 0
+    partial_rel_tp = 0
+    total_pred = 0
+    total_gold = 0
+
+    # Log invalid relations before filtering
+    invalid_pred_count = 0
+    invalid_gold_count = 0
+    for doc in pred:
+        for p in doc:
+            rel = p.split(";")[1].strip()
+            if rel not in relations_possibles:
+                invalid_pred_count += 1
+                LOG.debug("Invalid relation in prediction: %s", rel)
+    for doc in gold:
+        for g in doc:
+            rel = g.split(";")[1].strip()
+            if rel not in relations_possibles:
+                invalid_gold_count += 1
+                LOG.debug("Invalid relation in gold: %s", rel)
+
+    if invalid_pred_count > 0:
+        LOG.info("Filtered %d invalid relations from predictions", invalid_pred_count)
+    if invalid_gold_count > 0:
+        LOG.info("Filtered %d invalid relations from gold", invalid_gold_count)
+
     pred = [
         [p for p in pred_doc if p.split(";")[1].strip() in relations_possibles]
         for pred_doc in pred
     ]
 
-    # =====================================================
-    # Evaluations
-    # ======================================================
+    gold = [
+        [g for g in gold_doc if g.split(";")[1].strip() in relations_possibles]
+        for gold_doc in gold
+    ]
 
-    for pred_doc, gold_doc in zip(
-        pred, gold
-    ):  # On parcourt simultanément les triplets prédits et annotés
-
-        total_pred += len(pred_doc)  # Ajoute le nombre de triplets du document prédit
-        total_gold += len(gold_doc)  # Ajoute le nombre de triplets du document annoté
-
-        # --------------------------------------------------
-        # Normalisation des triplets
-        # --------------------------------------------------
+    for pred_doc, gold_doc in zip(pred, gold):
         pred_triples = []
         for p in pred_doc:
-            p_parts = [
-                part.strip() for part in p.split(";")
-            ]  # On split le triplet prédit en trois parties à l'aide du séparateur ';'
-            if (
-                len(p_parts) == 3
-            ):  # Si le triplet est bien constitué de 3 parties (sujet, relation, objet), on le garde
+            p_parts = [part.strip() for part in p.split(";")]
+            if len(p_parts) == 3:
                 pred_triples.append(tuple(p_parts))
+
+        unique_pred_triples = set(pred_triples)
+        total_pred += len(unique_pred_triples)
 
         gold_triples = []
         for g in gold_doc:
-            g_parts = [
-                part.strip() for part in g.split(";")
-            ]  # On découpe le triplet annoté (partie gold) en trois parties à l'aide du séparateur ';'
-            if (
-                len(g_parts) == 3
-            ):  # Si le triplet est bien constitué de 3 parties, on le conserve
+            g_parts = [part.strip() for part in g.split(";")]
+            if len(g_parts) == 3:
                 gold_triples.append(tuple(g_parts))
 
-        # --------------------------------------------------
-        # Exact matching (sujet + relation + object) : le triplet prédit doit apparaît exactement parmi les triplets annotés
-        # --------------------------------------------------
-        for p in pred_triples:
-            if (
-                p in gold_triples
-            ):  # on incrémente le compteur ssi on trouve le triplet prédit dans les triplets annotés
-                exact_tp += 1
+        unique_gold_triples = set(gold_triples)
+        total_gold += len(unique_gold_triples)
 
-        # --------------------------------------------------
-        # Partial match (sujet + object uniquement): on vérifie uniquement la paire d'entités(sans regarder relation).
-        # --------------------------------------------------
-        for p in pred_triples:
-            p_entities = (
-                p[0],
-                p[2],
-            )  # On garde que la paire d'entités (sujet, objet) du triplet prédit
-            for g in gold_triples:  # Compare avec toutes les paires d'entités du gold
-                g_entities = (g[0], g[2])
-                if (
-                    p_entities == g_entities
-                ):  # Si la paire apparaît, on incrémente le compteur de match partiel
+        # Exact
+        used_gold_exact = set()
+        gold_list = list(unique_gold_triples)
+        for p in unique_pred_triples:
+            for j, g in enumerate(gold_list):
+                if j in used_gold_exact:
+                    continue
+                if triples_equal(p, g):
+                    exact_tp += 1
+                    used_gold_exact.add(j)
+                    break
+
+        # Partial (head+tail)
+        used_gold_partial = set()
+        for p in unique_pred_triples:
+            p_entities = (p[0], p[2])
+            for j, g in enumerate(gold_list):
+                if j in used_gold_partial:
+                    continue
+                if entities_pair_equal(p_entities, (g[0], g[2])):
                     partial_tp += 1
-                    break  # On sort de la boucle pour éviter de le compter deux fois
+                    used_gold_partial.add(j)
+                    break
 
-        # --------------------------------------------------
-        # Partial match (relation correcte + une des deux entités correctes)
-        # --------------------------------------------------
-        for p in pred_triples:
-            for g in gold_triples:
-                if p[1] == g[1]:  # Si la relation est la même
-                    if (
-                        p[0] == g[0] or p[2] == g[2]
-                    ):  # Et au moins un des deux entités correspond
-                        partial_rel_tp += 1
-                        break  # On sort de la boucle pour ne pas compter plusieurs fois
+        # Partial (relation + 1 entity)
+        used_gold_partial_rel = set()
+        for p in unique_pred_triples:
+            for j, g in enumerate(gold_list):
+                if j in used_gold_partial_rel:
+                    continue
+                if p[1] != g[1]:
+                    continue
+                if (
+                    entities_equal(p[0], g[0])
+                    or entities_equal(p[0], g[2])
+                    or entities_equal(p[2], g[0])
+                    or entities_equal(p[2], g[2])
+                ):
+                    partial_rel_tp += 1
+                    used_gold_partial_rel.add(j)
+                    break
 
-    # --------------------------------------------------
-    # Calcul des métriques pour le match exact
-    # --------------------------------------------------
+    # Métriques Exact
     precision_exact = exact_tp / total_pred if total_pred > 0 else 0
     recall_exact = exact_tp / total_gold if total_gold > 0 else 0
     f1_exact = (
@@ -127,9 +156,7 @@ def evaluation_triplets(pred, gold, relations_possibles):
         else 0
     )
 
-    # --------------------------------------------------
-    # Calcul des métriques pour le match partiel (sujet + objet)
-    # --------------------------------------------------
+    # Métriques Partial (head+tail)
     precision_partial = partial_tp / total_pred if total_pred > 0 else 0
     recall_partial = partial_tp / total_gold if total_gold > 0 else 0
     f1_partial = (
@@ -138,9 +165,7 @@ def evaluation_triplets(pred, gold, relations_possibles):
         else 0
     )
 
-    # --------------------------------------------------
-    # Calcul des métriques pour le match partiel (relation correcte + une entité correcte)
-    # --------------------------------------------------
+    # Métriques Partial (relation + une entité correcte)
     precision_partial_rel = partial_rel_tp / total_pred if total_pred > 0 else 0
     recall_partial_rel = partial_rel_tp / total_gold if total_gold > 0 else 0
     f1_partial_rel = (
@@ -150,9 +175,6 @@ def evaluation_triplets(pred, gold, relations_possibles):
         else 0
     )
 
-    # --------------------------------------------------
-    # Résultat final
-    # --------------------------------------------------
     results = {
         "Exact matching": {
             "precision": precision_exact,
