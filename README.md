@@ -17,7 +17,7 @@ This repository provides scripts for TRIPLET Task 2. The main script processes a
 ### Prerequisites
 
 - Python 3.7+
-- [Poetry](https://python-poetry.org/) for dependency management.
+- [uv](https://docs.astral.sh/uv/) for dependency management.
 
 ### Installation
 
@@ -28,18 +28,12 @@ This repository provides scripts for TRIPLET Task 2. The main script processes a
    cd triplet-task2
    ```
 
-2. Install dependencies using Poetry:
-
-   ```bash
-   poetry install
-   ```
-
 ## Usage
 
 To process a dataset, run:
 
 ```bash
-poetry run python -m triplet_task2.main <input>
+uv run python -m triplet_task2.main <input>
 ```
 
 Replace `<input>` with the path to your source `.json` file.
@@ -82,7 +76,7 @@ Each output folder contains:
 To evaluate predicted triplets against gold standard annotations, run:
 
 ```bash
-poetry run python -m triplet_task2.evaluate <predicted> <gold> [options]
+uv run python -m triplet_task2.evaluate <predicted> <gold> [options]
 ```
 
 Replace `<predicted>` and `<gold>` with the paths to the respective `annotations.csv` files.
