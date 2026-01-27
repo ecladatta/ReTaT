@@ -1,12 +1,16 @@
 # Triplet Task 2
 
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-  - [Command-line Arguments](#command-line-arguments)
-- [Output Format](#output-format)
+- [Triplet Task 2](#triplet-task-2)
+  - [Overview](#overview)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+    - [Command-line Arguments](#command-line-arguments)
+  - [Output Format](#output-format)
+  - [Evaluation](#evaluation)
+    - [Evaluation Command-line Arguments](#evaluation-command-line-arguments)
+    - [Evaluation Output](#evaluation-output)
 
 ## Overview
 
