@@ -201,9 +201,8 @@ def parse_args() -> argparse.Namespace:
         description="Evaluate triplet predictions against gold standard annotations.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-Examples:
-  python evaluate_triplets.py predicted.csv --gold gold.csv
-  python evaluate_triplets.py predicted.csv --gold gold.csv --relations relations.csv
+Example:
+  python evaluate_triplets.py predicted.csv --gold gold.csv --relations relations.csv --output results.json predictions.csv
         """,
     )
 
