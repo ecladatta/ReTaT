@@ -11,6 +11,7 @@
   - [Evaluation](#evaluation)
     - [Evaluation Command-line Arguments](#evaluation-command-line-arguments)
     - [Evaluation Output](#evaluation-output)
+  - [Workflow for TRIPLET Challenge](#workflow-for-triplet-challenge)
 
 ## Overview
 
@@ -125,3 +126,21 @@ The evaluation script outputs a JSON object with metrics for different matching 
 - **Partial matching (relation + 1 entity)**: Relation and at least one entity (subject or object) match.
 
 Each metric includes `precision`, `recall`, and `f1` score.
+
+## Workflow for TRIPLET Challenge
+
+1. Download the properties files for each dataset:
+   - `female_celebrity_properties.csv`: https://nextcloud.eurecom.fr/s/binNocXa4CRAHKj
+   - `telco_properties.csv`: https://nextcloud.eurecom.fr/s/2n6THinAHS5AXSW
+   - `business_properties.csv`: https://nextcloud.eurecom.fr/s/Y6BnfB8a4PPKZLa
+
+2. Run the `prepare_triplet_task2.sh` script to generate the required ZIP files for submission:
+
+   ```bash
+   ./prepare_triplet_task2.sh female_celebrity_properties.csv telco_properties.csv business_properties.csv
+   ```
+
+3. This will create three ZIP files:
+   - `task2-train.zip`: Training dataset package.
+   - `task2-test.zip`: Test dataset package.
+   - `task2-groundtruth.zip`: Ground truth annotations for evaluation.
