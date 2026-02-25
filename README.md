@@ -129,7 +129,7 @@ Each metric includes `precision`, `recall`, and `f1` score.
 
 ## Workflow for TRIPLET Challenge
 
-1. Download the properties files for each dataset:
+1. Download the properties files for each dataset and put them in the root folder of this repository:
    - `female_celebrity_properties.csv`: https://nextcloud.eurecom.fr/s/binNocXa4CRAHKj
    - `telco_properties.csv`: https://nextcloud.eurecom.fr/s/2n6THinAHS5AXSW
    - `business_properties.csv`: https://nextcloud.eurecom.fr/s/Y6BnfB8a4PPKZLa
@@ -137,7 +137,7 @@ Each metric includes `precision`, `recall`, and `f1` score.
 2. Run the `prepare_triplet_task2.sh` script to generate the required ZIP files for submission:
 
    ```bash
-   ./prepare_triplet_task2.sh female_celebrity_properties.csv telco_properties.csv business_properties.csv
+   ./prepare_triplet_task2.sh
    ```
 
 3. This will create three ZIP files:
