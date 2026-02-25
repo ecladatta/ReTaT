@@ -26,7 +26,7 @@ fi
 # regenerate outputs
 uv run python -m triplet_task2.main -v "Female_Celebrity_FR (JointOnly-Thibault).json"
 uv run python -m triplet_task2.main -v "Telco_V3_EN.json"
-uv run python -m triplet_task2.main -v "Corpus_Business_IRIT_ISWC-Train_Joint_(nous)_(without_Pertinence)_OK.json"
+uv run python -m triplet_task2.main --no-split -v "Corpus_Business_IRIT_ISWC-Train_Joint_(nous)_(without_Pertinence)_OK.json"
 
 # staging dirs
 tmp_train_dir=$(mktemp -d)
