@@ -23,6 +23,12 @@ if [ ! -f "$BUSINESS_PROP" ]; then
     exit 1
 fi
 
+# delete previous outputs
+rm -rf "output/Corpus_Business_IRIT_ISWC-Train_Joint_(nous)_(without_Pertinence)_OK"
+rm -rf "output/Female_Celebrity_FR (JointOnly-Thibault)"
+rm -rf "output/Telco_V3_EN"
+rm -f task2-train.zip task2-test.zip task2-groundtruth.zip
+
 # regenerate outputs
 uv run python -m triplet_task2.main -v "Female_Celebrity_FR (JointOnly-Thibault).json"
 uv run python -m triplet_task2.main -v "Telco_V3_EN.json"
