@@ -23,6 +23,18 @@ def parse_args() -> argparse.Namespace:
         help="Destination directory (default: based on input filename)",
     )
     p.add_argument(
+        "--test-size",
+        type=float,
+        default=0.2,
+        help="Proportion of the dataset to include in the test split (default: 0.2)",
+    )
+    p.add_argument(
+        "--split",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Enable/disable train/test splitting",
+    )
+    p.add_argument(
         "-v",
         "--verbose",
         action="count",
@@ -143,12 +155,7 @@ def main() -> None:
     LOG.info("Processing input: %s", args.input)
     outdir = Path("output") / args.input.stem if args.outdir is None else args.outdir
     LOG.info("Output directory: %s", outdir)
-
     outdir.mkdir(parents=True, exist_ok=True)
-    train_dir = outdir / "train"
-    test_dir = outdir / "test"
-    train_dir.mkdir(parents=True, exist_ok=True)
-    test_dir.mkdir(parents=True, exist_ok=True)
 
     data = load_json(args.input)
 
@@ -160,7 +167,7 @@ def main() -> None:
     documents = [d for d in documents if d["id"] in doc_ids_with_anns]
     LOG.info("Documents with annotations: %d", len(documents))
 
-    # Stratified split by predicate
+    # General predicate stats
     pred_to_anns = defaultdict(list)
     for ann in annotations:
         pred_to_anns[ann["predicate"]].append(ann)
@@ -188,98 +195,125 @@ def main() -> None:
         for pred, anns in pred_to_anns.items()
         if len({ann["document_id"] for ann in anns}) == 1
     }
-    single_docs = set()
-    for pred in single_doc_preds:
-        for ann in pred_to_anns[pred]:
-            single_docs.add(ann["document_id"])
 
-    # For each document, find the most frequent predicate
-    doc_to_pred = defaultdict(lambda: defaultdict(int))
-    for ann in annotations:
-        doc_to_pred[ann["document_id"]][ann["predicate"]] += 1
+    # If no splitting or test size <= 0, write all data to root outdir without splitting
+    if not args.split or args.test_size <= 0.0:
+        LOG.info("Splitting disabled. Writing all data to %s", outdir)
+        write_documents_json(documents, outdir / "documents.json")
+        write_annotations_csv(annotations, outdir / "annotations.csv")
 
-    doc_strata = {}
-    for doc_id, pred_counts in doc_to_pred.items():
-        most_pred = max(pred_counts, key=pred_counts.get)
-        doc_strata[doc_id] = most_pred
+        stats = {
+            "args": vars(args),
+            "total_documents": len(documents),
+            "total_annotations": len(annotations),
+            "total_properties": total_properties,
+            "single_document_predicates": list(single_doc_preds),
+        }
+    else:
+        # Split documents into train/test while ensuring:
+        # 1) Documents with single-document predicates go to train
+        # 2) Stratify by most common predicate per document for the rest
+        train_dir = outdir / "train"
+        test_dir = outdir / "test"
+        train_dir.mkdir(parents=True, exist_ok=True)
+        test_dir.mkdir(parents=True, exist_ok=True)
 
-    # Split documents
-    all_doc_ids = list(doc_strata.keys())
-    train_doc_ids = set(single_docs)
-    remaining_docs = [doc_id for doc_id in all_doc_ids if doc_id not in single_docs]
+        single_docs = set()
+        for pred in single_doc_preds:
+            for ann in pred_to_anns[pred]:
+                single_docs.add(ann["document_id"])
 
-    if remaining_docs:
-        strata_remaining = [doc_strata[doc_id] for doc_id in remaining_docs]
-        # Handle strata with only 1 document
-        strata_counts = defaultdict(int)
-        for s in strata_remaining:
-            strata_counts[s] += 1
-        single_strata_docs = [
-            doc
-            for doc, s in zip(remaining_docs, strata_remaining)
-            if strata_counts[s] == 1
-        ]
-        train_doc_ids.update(single_strata_docs)
-        remaining_docs = [
-            doc for doc in remaining_docs if doc not in single_strata_docs
-        ]
-        strata_remaining = [doc_strata[doc_id] for doc_id in remaining_docs]
+        # For each document, find the most frequent predicate
+        doc_to_pred = defaultdict(lambda: defaultdict(int))
+        for ann in annotations:
+            doc_to_pred[ann["document_id"]][ann["predicate"]] += 1
+
+        doc_strata = {}
+        for doc_id, pred_counts in doc_to_pred.items():
+            most_pred = max(pred_counts, key=pred_counts.get)
+            doc_strata[doc_id] = most_pred
+
+        # Split documents
+        all_doc_ids = list(doc_strata.keys())
+        train_doc_ids = set(single_docs)
+        remaining_docs = [doc_id for doc_id in all_doc_ids if doc_id not in single_docs]
 
         if remaining_docs:
-            try:
-                train_remaining, test_remaining = train_test_split(
-                    remaining_docs,
-                    test_size=0.2,
-                    stratify=strata_remaining,
-                    random_state=42,
-                )
-            except ValueError:
-                # Fallback to random split if stratification not possible
-                train_remaining, test_remaining = train_test_split(
-                    remaining_docs, test_size=0.2, random_state=42
-                )
-            train_doc_ids.update(train_remaining)
-            test_doc_ids = set(test_remaining)
+            strata_remaining = [doc_strata[doc_id] for doc_id in remaining_docs]
+            # Handle strata with only 1 document
+            strata_counts = defaultdict(int)
+            for s in strata_remaining:
+                strata_counts[s] += 1
+            single_strata_docs = [
+                doc
+                for doc, s in zip(remaining_docs, strata_remaining)
+                if strata_counts[s] == 1
+            ]
+            train_doc_ids.update(single_strata_docs)
+            remaining_docs = [
+                doc for doc in remaining_docs if doc not in single_strata_docs
+            ]
+            strata_remaining = [doc_strata[doc_id] for doc_id in remaining_docs]
+
+            if remaining_docs:
+                try:
+                    train_remaining, test_remaining = train_test_split(
+                        remaining_docs,
+                        test_size=args.test_size,
+                        stratify=strata_remaining,
+                        random_state=42,
+                    )
+                except ValueError:
+                    # Fallback to random split if stratification not possible
+                    train_remaining, test_remaining = train_test_split(
+                        remaining_docs, test_size=args.test_size, random_state=42
+                    )
+                train_doc_ids.update(train_remaining)
+                test_doc_ids = set(test_remaining)
+            else:
+                test_doc_ids = set()
         else:
             test_doc_ids = set()
-    else:
-        test_doc_ids = set()
 
-    # Filter documents and annotations
-    train_docs = [d for d in documents if d["id"] in train_doc_ids]
-    test_docs = [d for d in documents if d["id"] in test_doc_ids]
-    train_anns = [ann for ann in annotations if ann["document_id"] in train_doc_ids]
-    test_anns = [ann for ann in annotations if ann["document_id"] in test_doc_ids]
+        # Filter documents and annotations
+        train_docs = [d for d in documents if d["id"] in train_doc_ids]
+        test_docs = [d for d in documents if d["id"] in test_doc_ids]
+        train_anns = [ann for ann in annotations if ann["document_id"] in train_doc_ids]
+        test_anns = [ann for ann in annotations if ann["document_id"] in test_doc_ids]
 
-    LOG.info("Split results:")
-    LOG.info(
-        "  Train documents: %d, Test documents: %d", len(train_docs), len(test_docs)
-    )
-    LOG.info(
-        "  Train annotations: %d, Test annotations: %d", len(train_anns), len(test_anns)
-    )
+        LOG.info("Split results:")
+        LOG.info(
+            "  Train documents: %d, Test documents: %d", len(train_docs), len(test_docs)
+        )
+        LOG.info(
+            "  Train annotations: %d, Test annotations: %d",
+            len(train_anns),
+            len(test_anns),
+        )
 
-    # Write outputs
-    write_documents_json(train_docs, train_dir / "documents.json")
-    write_annotations_csv(train_anns, train_dir / "annotations.csv")
-    write_documents_json(test_docs, test_dir / "documents.json")
-    write_annotations_csv(test_anns, test_dir / "annotations.csv")
+        # Write outputs
+        write_documents_json(train_docs, train_dir / "documents.json")
+        write_annotations_csv(train_anns, train_dir / "annotations.csv")
+        write_documents_json(test_docs, test_dir / "documents.json")
+        write_annotations_csv(test_anns, test_dir / "annotations.csv")
 
-    # Compute stats
-    stats = {
-        "total_documents": len(documents),
-        "train_documents": len(train_docs),
-        "test_documents": len(test_docs),
-        "overlapping_documents": len(train_doc_ids & test_doc_ids),
-        "total_annotations": len(annotations),
-        "train_annotations": len(train_anns),
-        "test_annotations": len(test_anns),
-        "total_properties": total_properties,
-        "single_document_predicates": list(single_doc_preds),
-    }
+        # Compute stats
+        stats = {
+            "args": vars(args),
+            "total_documents": len(documents),
+            "train_documents": len(train_docs),
+            "test_documents": len(test_docs),
+            "overlapping_documents": len(train_doc_ids & test_doc_ids),
+            "total_annotations": len(annotations),
+            "train_annotations": len(train_anns),
+            "test_annotations": len(test_anns),
+            "total_properties": total_properties,
+            "single_document_predicates": list(single_doc_preds),
+        }
 
+    # Write stats out
     with (outdir / "stats.json").open("w", encoding="utf-8") as f:
-        json.dump(stats, f, indent=2)
+        json.dump(stats, f, indent=2, default=str)
     LOG.info("Wrote %s", outdir / "stats.json")
 
 
