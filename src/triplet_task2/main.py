@@ -149,6 +149,41 @@ def write_annotations_csv(rows: Iterable[dict[str, str | None]], outpath: Path) 
     LOG.info("Wrote %s", outpath)
 
 
+def write_dataset_json(
+    docs: list[dict[str, Any]], anns: Iterable[dict[str, Any]], outpath: Path
+) -> None:
+    """Write a combined dataset JSON containing documents and annotations."""
+    payload = {"documents": docs, "annotations": list(anns)}
+    with outpath.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    LOG.info("Wrote %s", outpath)
+
+
+def write_dataset_from_root(
+    root: dict[str, Any], keep_doc_ids: set[str], outpath: Path
+) -> None:
+    """Write a dataset.json preserving the original export structure but
+    filtering `documents` to only those with ids in `keep_doc_ids`.
+    """
+    if not isinstance(root, dict):
+        LOG.error("Original root is not a mapping, cannot write dataset.json")
+        return
+
+    # Copy top-level keys except documents, then replace documents with filtered list
+    out_root = {k: v for k, v in root.items() if k != "documents"}
+    out_docs = []
+    for d in root.get("documents", []) or []:
+        if d.get("id") in keep_doc_ids:
+            # Keep the original document entry intact (including annotations)
+            out_docs.append(d)
+
+    out_root["documents"] = out_docs
+
+    with outpath.open("w", encoding="utf-8") as f:
+        json.dump(out_root, f, ensure_ascii=False, indent=2, default=str)
+    LOG.info("Wrote %s", outpath)
+
+
 def save_dataset_split(
     outdir: Path, split_name: str, docs: list[dict], anns: list[dict]
 ) -> None:
@@ -157,6 +192,8 @@ def save_dataset_split(
     split_dir.mkdir(parents=True, exist_ok=True)
     write_documents_json(docs, split_dir / "documents.json")
     write_annotations_csv(anns, split_dir / "annotations.csv")
+    # Also write the combined dataset in the same structure as the input
+    write_dataset_json(docs, anns, split_dir / "dataset.json")
 
 
 def analyze_predicates(annotations: list[dict]) -> tuple[int, set[str]]:
@@ -283,6 +320,9 @@ def main() -> None:
     if not args.split or args.test_size <= 0.0:
         LOG.info("Splitting disabled. Writing all data to %s", outdir)
         save_dataset_split(outdir, "", documents, annotations)
+        # Write full dataset.json filtered from original root
+        all_ids = {d["id"] for d in documents}
+        write_dataset_from_root(data, all_ids, outdir / "dataset.json")
         stats["total_documents"] = len(documents)
 
     # Branch 2: Stratified Split
@@ -302,6 +342,14 @@ def main() -> None:
 
         save_dataset_split(outdir, "train", train_docs, train_anns)
         save_dataset_split(outdir, "test", test_docs, test_anns)
+
+        # Also export filtered dataset.json files based on original root
+        write_dataset_from_root(
+            data, {d["id"] for d in train_docs}, outdir / "train" / "dataset.json"
+        )
+        write_dataset_from_root(
+            data, {d["id"] for d in test_docs}, outdir / "test" / "dataset.json"
+        )
 
         stats.update(
             {
