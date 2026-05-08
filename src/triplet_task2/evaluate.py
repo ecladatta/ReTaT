@@ -10,7 +10,6 @@ import csv
 import json
 import logging
 from pathlib import Path
-from typing import Dict, List
 
 LOG = logging.getLogger(__name__)
 
@@ -246,7 +245,7 @@ def setup_logging(verbosity: int) -> None:
     logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
 
 
-def load_relations_csv(path: Path) -> List[str]:
+def load_relations_csv(path: Path) -> list[str]:
     """Load valid relations from CSV file, ignoring the first row (header)."""
     relations = []
     try:
@@ -258,13 +257,13 @@ def load_relations_csv(path: Path) -> List[str]:
                     relations.append(row[0].strip())
     except Exception as e:
         LOG.error("Failed to read relations CSV: %s", e)
-        raise SystemExit(1)
+        raise SystemExit(1) from e
 
     LOG.info("Loaded %d valid relations from %s", len(relations), path)
     return relations
 
 
-def load_annotations_csv(path: Path) -> List[Dict[str, str]]:
+def load_annotations_csv(path: Path) -> list[dict[str, str]]:
     """Load annotations from CSV file."""
     annotations = []
     try:
@@ -287,15 +286,15 @@ def load_annotations_csv(path: Path) -> List[Dict[str, str]]:
                     LOG.warning("Skipping incomplete annotation row: %s", row)
     except Exception as e:
         LOG.error("Failed to read annotations CSV: %s", e)
-        raise SystemExit(1)
+        raise SystemExit(1) from e
 
     LOG.info("Loaded %d annotations from %s", len(annotations), path)
     return annotations
 
 
 def convert_annotations_to_triplet_format(
-    annotations: List[Dict[str, str]],
-) -> List[List[str]]:
+    annotations: list[dict[str, str]],
+) -> list[list[str]]:
     """Convert annotations to the format expected by evaluation_triplets function."""
     doc_triplets = {}
     for ann in annotations:
@@ -313,7 +312,7 @@ def convert_annotations_to_triplet_format(
     return result
 
 
-def print_evaluation_results(results: Dict) -> None:
+def print_evaluation_results(results: dict) -> None:
     """Print evaluation results in a formatted way."""
     print("\nTriplet Evaluation Results")
     print("=" * 50)
