@@ -23,6 +23,12 @@ def parse_args() -> argparse.Namespace:
         help="Destination directory (default: based on input filename)",
     )
     p.add_argument(
+        "--test-set",
+        type=Path,
+        default=None,
+        help="Optional path to a different test set. If provided, input becomes train data.",
+    )
+    p.add_argument(
         "--test-size",
         type=float,
         default=0.2,
@@ -316,8 +322,46 @@ def main() -> None:
     total_properties, single_doc_preds = analyze_predicates(annotations)
     stats = get_base_stats(args, annotations, total_properties, single_doc_preds)
 
-    # Branch 1: No Splitting
-    if not args.split or args.test_size <= 0.0:
+    # Branch 1: External Test Set
+    if args.test_set is not None:
+        LOG.info(
+            "External test set provided. Using %s as train, and %s as test.",
+            args.input,
+            args.test_set,
+        )
+
+        test_data = load_json(args.test_set)
+        test_docs_raw = extract_documents(test_data)
+        test_anns = list(iter_annotations(test_data))
+
+        test_doc_ids_with_anns = {ann["document_id"] for ann in test_anns}
+        test_docs = [d for d in test_docs_raw if d["id"] in test_doc_ids_with_anns]
+
+        save_dataset_split(outdir, "train", documents, annotations)
+        save_dataset_split(outdir, "test", test_docs, test_anns)
+
+        # Also write dataset.json files preserving original structure
+        train_ids = {d["id"] for d in documents}
+        test_ids = {d["id"] for d in test_docs}
+        write_dataset_from_root(data, train_ids, outdir / "train" / "dataset.json")
+        write_dataset_from_root(test_data, test_ids, outdir / "test" / "dataset.json")
+
+        stats.update(
+            {
+                "total_documents": len(documents) + len(test_docs),
+                "train_documents": len(documents),
+                "test_documents": len(test_docs),
+                "overlapping_documents": len(
+                    {d["id"] for d in documents} & test_doc_ids_with_anns
+                ),
+                "total_annotations": len(annotations) + len(test_anns),
+                "train_annotations": len(annotations),
+                "test_annotations": len(test_anns),
+            }
+        )
+
+    # Branch 2: No Splitting
+    elif not args.split or args.test_size <= 0.0:
         LOG.info("Splitting disabled. Writing all data to %s", outdir)
         save_dataset_split(outdir, "", documents, annotations)
         # Write full dataset.json filtered from original root
@@ -325,7 +369,7 @@ def main() -> None:
         write_dataset_from_root(data, all_ids, outdir / "dataset.json")
         stats["total_documents"] = len(documents)
 
-    # Branch 2: Stratified Split
+    # Branch 3: Stratified Split
     else:
         train_doc_ids, test_doc_ids = perform_stratified_split(
             documents, annotations, single_doc_preds, args.test_size
