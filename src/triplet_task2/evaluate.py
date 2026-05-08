@@ -92,7 +92,7 @@ def evaluation_triplets(pred, gold, relations_possibles):
             if len(p_parts) == 3:
                 pred_triples.append(tuple(p_parts))
 
-        unique_pred_triples = set(pred_triples)
+        unique_pred_triples = sorted(set(pred_triples))
         total_pred += len(unique_pred_triples)
 
         gold_triples = []
@@ -101,12 +101,12 @@ def evaluation_triplets(pred, gold, relations_possibles):
             if len(g_parts) == 3:
                 gold_triples.append(tuple(g_parts))
 
-        unique_gold_triples = set(gold_triples)
+        unique_gold_triples = sorted(set(gold_triples))
         total_gold += len(unique_gold_triples)
 
         # Exact
         used_gold_exact = set()
-        gold_list = list(unique_gold_triples)
+        gold_list = unique_gold_triples
         for p in unique_pred_triples:
             for j, g in enumerate(gold_list):
                 if j in used_gold_exact:
@@ -294,9 +294,9 @@ def load_annotations_csv(path: Path) -> list[dict[str, str]]:
 
 def convert_annotations_to_triplet_format(
     annotations: list[dict[str, str]],
-) -> list[list[str]]:
-    """Convert annotations to the format expected by evaluation_triplets function."""
-    doc_triplets = {}
+) -> dict[str, list[str]]:
+    """Group annotations by document_id using the evaluator triplet string format."""
+    doc_triplets: dict[str, list[str]] = {}
     for ann in annotations:
         doc_id = ann["document_id"]
         triplet = f"{ann['subject']}; {ann['predicate']}; {ann['object']}"
@@ -304,12 +304,47 @@ def convert_annotations_to_triplet_format(
             doc_triplets[doc_id] = []
         doc_triplets[doc_id].append(triplet)
 
-    result = []
-    for doc_id in sorted(doc_triplets.keys()):
-        result.append(doc_triplets[doc_id])
+    LOG.info("Converted annotations to %d documents", len(doc_triplets))
+    return doc_triplets
 
-    LOG.info("Converted annotations to %d documents", len(result))
-    return result
+
+def align_triplet_documents(
+    pred_docs: dict[str, list[str]],
+    gold_docs: dict[str, list[str]],
+) -> tuple[list[list[str]], list[list[str]]]:
+    """Align predictions to gold document IDs before scoring."""
+    pred_doc_ids = set(pred_docs)
+    gold_doc_ids = set(gold_docs)
+
+    missing_pred_doc_ids = sorted(gold_doc_ids - pred_doc_ids)
+    extra_pred_doc_ids = sorted(pred_doc_ids - gold_doc_ids)
+
+    if missing_pred_doc_ids:
+        LOG.warning(
+            "Missing predictions for %d gold documents; treating them as empty predictions",
+            len(missing_pred_doc_ids),
+        )
+        LOG.warning(
+            "Missing prediction document IDs: %s",
+            ", ".join(missing_pred_doc_ids),
+        )
+
+    if extra_pred_doc_ids:
+        LOG.warning(
+            "Ignoring predictions for %d documents not present in gold",
+            len(extra_pred_doc_ids),
+        )
+        LOG.warning(
+            "Extra prediction document IDs: %s",
+            ", ".join(extra_pred_doc_ids),
+        )
+
+    ordered_gold_doc_ids = sorted(gold_doc_ids)
+    pred_triplets = [pred_docs.get(doc_id, []) for doc_id in ordered_gold_doc_ids]
+    gold_triplets = [gold_docs[doc_id] for doc_id in ordered_gold_doc_ids]
+
+    LOG.info("Aligned %d gold documents for evaluation", len(ordered_gold_doc_ids))
+    return pred_triplets, gold_triplets
 
 
 def print_evaluation_results(results: dict) -> None:
@@ -339,23 +374,11 @@ def main() -> None:
     pred_annotations = load_annotations_csv(args.predicted)
     gold_annotations = load_annotations_csv(args.gold)
 
-    pred_triplets = convert_annotations_to_triplet_format(pred_annotations)
-    gold_triplets = convert_annotations_to_triplet_format(gold_annotations)
+    pred_docs = convert_annotations_to_triplet_format(pred_annotations)
+    gold_docs = convert_annotations_to_triplet_format(gold_annotations)
+    pred_triplets, gold_triplets = align_triplet_documents(pred_docs, gold_docs)
 
-    if len(pred_triplets) != len(gold_triplets):
-        LOG.error(
-            "Mismatch in number of documents: predicted=%d, gold=%d",
-            len(pred_triplets),
-            len(gold_triplets),
-        )
-        print(
-            "ERROR: The predicted and gold datasets must have the same number of documents."
-        )
-        print(f"Predicted: {len(pred_triplets)} documents")
-        print(f"Gold: {len(gold_triplets)} documents")
-        raise SystemExit(2)
-
-    LOG.info("Evaluating %d documents", len(pred_triplets))
+    LOG.info("Evaluating %d documents", len(gold_triplets))
 
     results = evaluation_triplets(pred_triplets, gold_triplets, relations)
 
