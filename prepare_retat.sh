@@ -4,10 +4,9 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Arguments: paths to properties files for female, telco, business (in that order)
-# If not provided, use default names in current directory
-FEMALE_CELEBRITY_PROP=${1:-female_celebrity_properties.csv}
-TELCO_PROP=${2:-telco_properties.csv}
-BUSINESS_PROP=${3:-business_properties.csv}
+FEMALE_CELEBRITY_PROP=${1:-data/train/female_celebrity/properties.csv}
+TELCO_PROP=${2:-data/train/telco/properties.csv}
+BUSINESS_PROP=${3:-data/train/business/properties.csv}
 
 # Check if files exist
 if [ ! -f "$FEMALE_CELEBRITY_PROP" ]; then
@@ -30,9 +29,9 @@ rm -rf "output/Telco_V3_EN"
 rm -f task2-train.zip task2-test.zip task2-groundtruth.zip
 
 # regenerate outputs
-uv run python -m triplet_task2.main -v "Female_Celebrity_FR (JointOnly-Thibault).json"
-uv run python -m triplet_task2.main -v "Telco_V3_EN.json"
-uv run python -m triplet_task2.main --test-set "Corpus_Business_IRIT_ISWC_Test_Joint.json" --no-split -v "Corpus_Business_IRIT_ISWC-Train_Joint_(nous)_(without_Pertinence)_OK.json"
+uv run python -m retat.main -v "Female_Celebrity_FR (JointOnly-Thibault).json"
+uv run python -m retat.main -v "Telco_V3_EN.json"
+uv run python -m retat.main --test-set "Corpus_Business_IRIT_ISWC_Test_Joint.json" --no-split -v "Corpus_Business_IRIT_ISWC-Train_Joint_(nous)_(without_Pertinence)_OK.json"
 
 # staging dirs
 tmp_train_dir=$(mktemp -d)

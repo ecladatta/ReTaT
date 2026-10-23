@@ -1,10 +1,11 @@
-# Triplet Task 2
+# ReTaT
 
-- [Triplet Task 2](#triplet-task-2)
+- [ReTaT](#retat)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
+  - [Data](#data)
   - [Usage](#usage)
     - [Command-line Arguments](#command-line-arguments)
   - [Output Format](#output-format)
@@ -21,7 +22,7 @@ This repository provides scripts for TRIPLET Task 2. The main script processes a
 
 ### Prerequisites
 
-- Python 3.7+
+- Python 3.8+
 - [uv](https://docs.astral.sh/uv/) for dependency management.
 
 ### Installation
@@ -29,21 +30,32 @@ This repository provides scripts for TRIPLET Task 2. The main script processes a
 1. Clone this repository:
 
    ```bash
-   git clone https://gitlab.eurecom.fr/tehrhart/triplet-task2.git
-   cd triplet-task2
+   git clone https://github.com/ecladatta/ReTaT.git
+   cd ReTaT
    ```
+
+## Data
+
+The `data/` directory contains the challenge datasets:
+
+- `data/train/<dataset>/annotations.csv`: The annotated triplets for training.
+- `data/train/<dataset>/documents.json`: The documents referenced by the annotations.
+- `data/train/<dataset>/properties.csv`: The relation properties of the dataset.
+- `data/test/<dataset>/documents.json` and `data/test/<dataset>/properties.csv`: The test documents and properties.
+
+`<dataset>` is one of `business`, `female_celebrity`, `telco`.
 
 ## Usage
 
 To process a dataset, run:
 
 ```bash
-uv run python -m triplet_task2.main <input>
+uv run python -m retat.main <input>
 ```
 
 Replace `<input>` with the path to your source `.json` file.
 
-This will create an output directory based on the input filename, containing the processed annotations and documents. See the [Output](#output) section for details on the generated files.
+This will create an output directory based on the input filename, containing the processed annotations and documents. See the [Output Format](#output-format) section for details on the generated files.
 
 ### Command-line Arguments
 
@@ -59,7 +71,6 @@ This will create an output directory based on the input filename, containing the
 Each output folder contains:
 
 - `annotations.csv`: A CSV file with the columns:
-
   - `document_id`: The unique identifier of the source document for the annotation.
   - `subject`: The subject entity of the annotated triplet.
   - `predicate`: The predicate (relation) of the annotated triplet.
@@ -68,7 +79,6 @@ Each output folder contains:
   Each row represents a single annotation (triplet) extracted from the input dataset.
 
 - `documents.json`: A JSON array where each element is an object representing a document with the following fields:
-
   - `id`: The document's unique identifier.
   - `title`: The document's title.
   - `texts`: A list of text segments extracted from the document.
@@ -81,25 +91,25 @@ Each output folder contains:
 To evaluate predicted triplets against gold standard annotations, run:
 
 ```bash
-uv run python -m triplet_task2.evaluate <predicted> <gold> [options]
+uv run python -m retat.evaluate <predicted> --gold <gold> --relations <relations> [options]
 ```
 
 Replace `<predicted>` and `<gold>` with the paths to the respective `annotations.csv` files.
 
 ### Evaluation Command-line Arguments
 
-| Argument                       | Description                                                                  |
-| ------------------------------ | ---------------------------------------------------------------------------- |
-| `<predicted>`                  | Path to predicted annotations CSV file (required)                            |
-| `<gold>`                       | Path to gold standard annotations CSV file (required)                        |
-| `--relations <REL> [<REL>...]` | List of valid relations (default: predefined business relations)             |
-| `-o, --output <OUTPUT>`        | Output file for evaluation results in JSON format (default: print to stdout) |
-| `-v, --verbose`                | Increase verbosity (`-v`, `-vv`)                                             |
-| `-h, --help`                   | Show help message and exit                                                   |
+| Argument                  | Description                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------- |
+| `<predicted>`             | Path to predicted annotations CSV file (required)                                         |
+| `--gold <GOLD>`           | Path to gold standard annotations CSV file (required)                                     |
+| `--relations <RELATIONS>` | Path to a CSV file listing the valid relations, one per row, first row ignored (required) |
+| `-o, --output <OUTPUT>`   | Output file for evaluation results in JSON format (default: print to stdout)              |
+| `-v, --verbose`           | Increase verbosity (`-v`, `-vv`)                                                          |
+| `-h, --help`              | Show help message and exit                                                                |
 
 ### Evaluation Output
 
-The evaluation script outputs a JSON object with metrics for different matching strategies:
+The evaluation script prints a summary table to stdout. With `-o, --output`, it writes the metrics to a JSON file:
 
 ```json
 {
@@ -129,18 +139,13 @@ Each metric includes `precision`, `recall`, and `f1` score.
 
 ## Workflow for TRIPLET Challenge
 
-1. Download the properties files for each dataset and put them in the root folder of this repository:
-   - `female_celebrity_properties.csv`: https://nextcloud.eurecom.fr/s/binNocXa4CRAHKj
-   - `telco_properties.csv`: https://nextcloud.eurecom.fr/s/2n6THinAHS5AXSW
-   - `business_properties.csv`: https://nextcloud.eurecom.fr/s/Y6BnfB8a4PPKZLa
-
-2. Run the `prepare_triplet_task2.sh` script to generate the required ZIP files for submission:
+1. Run the `prepare_retat.sh` script to generate the required ZIP files for submission:
 
    ```bash
-   ./prepare_triplet_task2.sh
+   ./prepare_retat.sh
    ```
 
-3. This will create three ZIP files:
+2. This will create three ZIP files:
    - `task2-train.zip`: Training dataset package.
    - `task2-test.zip`: Test dataset package.
    - `task2-groundtruth.zip`: Ground truth annotations for evaluation.

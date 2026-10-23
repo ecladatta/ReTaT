@@ -33,10 +33,7 @@ def evaluation_triplets(pred, gold, relations_possibles):
 
         if entities_equal(h1, h2) and entities_equal(t1_, t2_):
             return True
-        if entities_equal(h1, t2_) and entities_equal(t1_, h2):
-            return True
-
-        return False
+        return entities_equal(h1, t2_) and entities_equal(t1_, h2)
 
     def entities_pair_equal(p1, p2):
         h1, t1_ = p1
@@ -44,9 +41,7 @@ def evaluation_triplets(pred, gold, relations_possibles):
 
         if entities_equal(h1, h2) and entities_equal(t1_, t2_):
             return True
-        if entities_equal(h1, t2_) and entities_equal(t1_, h2):
-            return True
-        return False
+        return entities_equal(h1, t2_) and entities_equal(t1_, h2)
 
     exact_tp = 0
     partial_tp = 0
