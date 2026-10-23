@@ -42,6 +42,7 @@ The `data/` directory contains the challenge datasets:
 - `data/train/<dataset>/annotations.csv`: The annotated triplets for training.
 - `data/train/<dataset>/documents.json`: The documents referenced by the annotations.
 - `data/train/<dataset>/properties.csv`: The relation properties of the dataset.
+- `data/test/<dataset>/annotations.csv`: The annotated triplets for testing.
 - `data/test/<dataset>/documents.json` and `data/test/<dataset>/properties.csv`: The test documents and properties.
 
 `<dataset>` is one of `business`, `female_celebrity`, `telco`.
