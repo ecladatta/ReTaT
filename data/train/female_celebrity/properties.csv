@@ -1,0 +1,12 @@
+pid,label,description
+P26,"spouse","The subject has the object as their legal spouse (husband, wife, etc.)."
+P39,"position held","The office, position, or public role that the subject currently or formerly held; not to be confused with P97 (noble title), which refers to hereditary or honorific ranks."
+P97,"noble title","A hereditary, honorific, or royal rank held by the subject; not to be confused with P39 (position held), which refers to political or administrative offices."
+P166,"award received","An award or other formal recognition received by a person, organisation, or creative work."
+P170,"creator","The person or organisation who created or originated the work, object, or other item."
+P184,"doctoral advisor","The person who supervised the subject's doctoral or PhD thesis (also known as thesis advisor or PhD supervisor)."
+P1111,"votes received","The number or share of votes the subject received in an election or vote, expressed as a count or percentage."
+P1344,"participant in","An event or process in which a person, organisation, or creative work participates."
+P1346,"winner","The subject who won a competition or similar event; not to be used for awards (use P166 instead)."
+P1352,"ranking","The ordinal or ranking position of the subject in a list, competition, or group."
+P8810,"parent","The subject has the object as their parent."

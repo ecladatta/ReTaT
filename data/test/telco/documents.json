@@ -1,0 +1,2865 @@
+[
+  {
+    "id": "9e6bd358-5198-4af0-b453-6111fcd7e230",
+    "title": "IEEE 802.11n-2009",
+    "texts": [
+      {
+        "index": 0,
+        "level": 0,
+        "title": null,
+        "value": "IEEE 802.11n-2009, or 802.11n, is a wireless-networking standard that uses multiple antennas to increase data rates. The Wi-Fi Alliance has also retroactively labelled the technology for the standard as Wi-Fi 4. It standardized support for multiple-input multiple-output, frame aggregation, and security improvements, among other features, and can be used in the 2.4 GHz or 5 GHz frequency bands.\n\nAs the first Wi-Fi standard that introduced MIMO (Multiple-Input and Multiple-Output) support, sometimes devices/systems that support 802.11n standard (or draft version of the standard) are being referred to as MIMO (Wi-Fi products), especially before the introduction of the next generation standard. Alt URL The use of MIMO-OFDM (Orthogonal Frequency Division Multiplexing) to increase the data rate while maintaining the same spectrum as 802.11a was first demonstrated by Airgo Networks.\n\nThe purpose of the standard is to improve network throughput over the two previous standards—802.11a and 802.11g—with a significant increase in the maximum net data rate from 54 Mbit/s to 72 Mbit/s with a single spatial stream in a 20 MHz channel, and 600 Mbit/s (slightly higher gross bit rate including for example error-correction codes, and slightly lower maximum throughput) with the use of four spatial streams at a channel width of 40 MHz.\n\nIEEE 802.11n-2009 is an amendment to the IEEE 802.11-2007 wireless-networking standard. 802.11 is a set of IEEE standards that govern wireless networking transmission methods. They are commonly used today in their 802.11a, 802.11b, 802.11g, 802.11n, 802.11ac and 802.11ax versions to provide wireless connectivity in homes and businesses. Development of 802.11n began in 2002, seven years before publication. The 802.11n protocol is now Clause 20 of the published IEEE 802.11-2012 standard.",
+        "endOffset": 3851,
+        "startOffset": 0
+      },
+      {
+        "index": 1,
+        "level": 2,
+        "title": "Description",
+        "value": "IEEE 802.11n is an amendment to IEEE 802.11-2007 as amended by IEEE 802.11k-2008, IEEE 802.11r-2008, IEEE 802.11y-2008, and IEEE 802.11w-2009, and builds on previous 802.11 standards by adding multiple-input multiple-output (MIMO) and 40 MHz channels to the PHY (physical layer), and frame aggregation to the MAC layer.\n\nMIMO is a technology that uses multiple antennas to coherently resolve more information than possible using a single antenna. One way it provides this is through Spatial Division Multiplexing (SDM), which spatially multiplexes multiple independent data streams, transferred simultaneously within one spectral channel of bandwidth. MIMO SDM can significantly increase data throughput as the number of resolved spatial data streams is increased. Each spatial stream requires a discrete antenna at both the transmitter and the receiver. In addition, MIMO technology requires a separate radio-frequency chain and analog-to-digital converter for each MIMO antenna, making it more expensive to implement than non-MIMO systems.\n\nChannels operating with a width of 40 MHz are another feature incorporated into 802.11n; this doubles the channel width from 20 MHz in previous 802.11 PHYs to transmit data, and provides twice the PHY data rate available over a single 20 MHz channel.  It can be enabled in the 5 GHz mode, or within the 2.4 GHz mode if there is knowledge that it will not interfere with any other 802.11 or non-802.11 (such as Bluetooth) system using the same frequencies.  The MIMO architecture, together with wider-bandwidth channels, offers increased physical transfer rate over 802.11a (5 GHz) and 802.11g (2.4 GHz).",
+        "endOffset": 16768,
+        "startOffset": 3851
+      },
+      {
+        "index": 2,
+        "level": 3,
+        "title": "Data encoding",
+        "value": "The transmitter and receiver use precoding and postcoding techniques, respectively, to achieve the capacity of a MIMO link. Precoding includes spatial beamforming and spatial coding, where spatial beamforming improves the received signal quality at the decoding stage. Spatial coding can increase data throughput via spatial multiplexing and increase range by exploiting the spatial diversity, through techniques such as Alamouti coding.",
+        "endOffset": 6920,
+        "startOffset": 6409
+      },
+      {
+        "index": 3,
+        "level": 3,
+        "title": "Number of antennas",
+        "value": "The number of simultaneous data streams is limited by the minimum number of antennas in use on both sides of the link. However, the individual radios often further limit the number of spatial streams that may carry unique data. The  notation helps identify what a given radio is capable of. The first number (a) is the maximum number of transmit antennas or TX RF chains that can be used by the radio. The second number (b) is the maximum number of receive antennas or RX RF chains that can be used by the radio. The third number (c) is the maximum number of data spatial streams the radio can use. For example, a radio that can transmit on two antennas and receive on three, but can only send or receive two data streams would be \n\nThe 802.11n draft allows up to  Common configurations of 11n devices are 2×2:2, 2×3:2, and 3×2:2. All three configurations have the same maximum throughputs and features, and differ only in the amount of diversity the antenna systems provide. In addition, a fourth configuration, 3×3:3 is becoming common, which has a higher throughput, due to the additional data stream.",
+        "endOffset": 8522,
+        "startOffset": 6920
+      },
+      {
+        "index": 4,
+        "level": 3,
+        "title": "Data rates",
+        "value": "Assuming equal operating parameters to an 802.11g network achieving 54 megabits per second (on a single 20 MHz channel with one antenna), an 802.11n network can achieve 72 megabits per second (on a single 20 MHz channel with one antenna and 400 ns guard interval); 802.11n's speed may go up to 150 megabits per second if there are not other Bluetooth, microwave or Wi-Fi emissions in the neighborhood by using two 20 MHz channels in 40 MHz mode. If more antennas are used, then 802.11n can go up to 288 megabits per second in 20 MHz mode with four antennas, or 600 megabits per second in 40 MHz mode with four antennas and 400 ns guard interval. Because the 2.4 GHz band is seriously congested in most urban areas, 802.11n networks usually have more success in increasing data rate by utilizing more antennas in 20 MHz mode rather than by operating in the 40 MHz mode, as the 40 MHz mode requires a relatively free radio spectrum which is only available in rural areas away from cities. Thus, network engineers installing an 802.11n network should strive to select routers and wireless clients with the most antennas possible (one, two, three or four as specified by the 802.11n standard) and try to make sure that the network's bandwidth will be satisfactory even on the 20 MHz mode.\n\nData rates up to 600 Mbit/s are achieved only with the maximum of four spatial streams using one 40 MHz-wide channel. Various modulation schemes and coding rates are defined by the standard and are represented by a Modulation and Coding Scheme (MCS) index value.  The table below shows the relationships between the variables that allow for the maximum data rate. GI (Guard Interval): Timing between symbols.\n\n20 MHz channel uses an FFT of 64, of which: 56 OFDM subcarriers, 52 are for data and 4 are pilot tones with a carrier separation of 0.3125 MHz (20 MHz/64) (3.2 μs). Each of these subcarriers can be a BPSK, QPSK, 16-QAM or 64-QAM. The total bandwidth is 20 MHz with an occupied bandwidth of 17.8 MHz. Total symbol duration is 3.6 or 4 microseconds, which includes a guard interval of 0.4 (also known as short guard interval (SGI)) or 0.8 microseconds.",
+        "endOffset": 14459,
+        "startOffset": 8522
+      },
+      {
+        "index": 5,
+        "level": 3,
+        "title": "Frame aggregation",
+        "value": "PHY level data rate does not match user level throughput because of 802.11 protocol overheads, like the contention process, interframe spacing, PHY level headers (Preamble + PLCP) and acknowledgment frames. The main media access control (MAC) feature that provides a performance improvement is aggregation. Two types of aggregation are defined:\n# Aggregation of MAC service data units (MSDUs) at the top of the MAC (referred to as MSDU aggregation or A-MSDU)\n# Aggregation of MAC protocol data units (MPDUs) at the bottom of the MAC (referred to as MPDU aggregation or A-MPDU)\n\nFrame aggregation is a process of packing multiple MSDUs or MPDUs together to reduce the overheads and average them over multiple frames, thereby increasing the user level data rate. A-MPDU aggregation requires the use of block acknowledgement or BlockAck, which was introduced in 802.11e and has been optimized in 802.11n.",
+        "endOffset": 15408,
+        "startOffset": 14459
+      },
+      {
+        "index": 6,
+        "level": 3,
+        "title": "Backward compatibility",
+        "value": "When 802.11g was released to share the band with existing 802.11b devices, it provided ways of ensuring backward compatibility between legacy and successor devices. 802.11n extends the coexistence management to protect its transmissions from legacy devices, which include 802.11g, 802.11b and 802.11a. There are MAC and PHY level protection mechanisms as listed below:\n\n# PHY level protection: Mixed Mode Format protection (also known as L-SIG TXOP Protection): In mixed mode, each 802.11n transmission is always embedded in an 802.11a or 802.11g transmission. For 20 MHz transmissions, this embedding takes care of the protection with 802.11a and 802.11g. However, 802.11b devices still need CTS protection.\n# PHY level protection: Transmissions using a 40 MHz channel in the presence of 802.11a or 802.11g clients require using CTS protection on both 20 MHz halves of the 40 MHz channel, to prevent interference with legacy devices.\n# MAC level protection: An RTS/CTS frame exchange or CTS frame transmission at legacy rates can be used to protect subsequent 11n transmission.",
+        "endOffset": 16768,
+        "startOffset": 15408
+      },
+      {
+        "index": 7,
+        "level": 2,
+        "title": "Deployment strategies",
+        "value": "To achieve maximum output, a pure 802.11n 5 GHz network is recommended. The 5 GHz band has substantial capacity due to many non-overlapping radio channels and less radio interference as compared to the 2.4 GHz band. An 802.11n-only network may be impractical for many users because they need to support legacy equipment that still is 802.11b/g only. In a mixed-mode system, an optimal solution would be to use a dual-radio access point and place the 802.11b/g traffic on the 2.4 GHz radio and the 802.11n traffic on the 5 GHz radio.  This setup assumes that all the 802.11n clients are 5 GHz capable, which is not a requirement of the standard.  Quite a few Wi-Fi-capable devices only support the 2.4 GHz and there is no practical way to upgrade them to support 5 GHz.  Some enterprise-grade APs use band steering to send 802.11n clients to the 5 GHz band, leaving the 2.4 GHz band for legacy clients. Band steering works by responding only to 5 GHz association requests and not the 2.4 GHz requests from dual-band clients.",
+        "endOffset": 21537,
+        "startOffset": 16768
+      },
+      {
+        "index": 8,
+        "level": 3,
+        "title": "40 MHz channels in 2.4 GHz",
+        "value": "The 2.4 GHz ISM band is fairly congested.  With 802.11n, there is the option to double the bandwidth per channel to 40 MHz (fat channel) which results in slightly more than double the data rate.  However, in North America, when in 2.4 GHz, enabling this option takes up to 82% of the unlicensed band. For example, channel 3 SCA (secondary channel above), also known as 3+7, reserves the first 9 out of the 11 channels available. In Europe and other places where channels 1–13 are available, allocating 1+5 uses slightly more than 50% of the channels, but the overlap with 9+13 is not usually significant as it lies at the edges of the bands, and so two 40 MHz bands typically work unless the transmitters are physically very closely spaced.\n\nThe specification calls for requiring one primary 20 MHz channel as well as a secondary adjacent channel spaced ±20 MHz away.  The primary channel is used for communications with clients incapable of 40 MHz mode.  When in 40 MHz mode, the center frequency is actually the mean of the primary and secondary channels.\n\n\n\nLocal regulations may restrict certain channels from operation.  For example, Channels 12 and 13 are normally unavailable for use as either a primary or secondary channel in North America.  For further information, see List of WLAN channels.",
+        "endOffset": 21537,
+        "startOffset": 19145
+      },
+      {
+        "index": 9,
+        "level": 2,
+        "title": "Wi-Fi Alliance certification program",
+        "value": "The Wi-Fi Alliance has upgraded its suite of compatibility tests for some enhancements that were finalized after a 2.0. Furthermore, it has affirmed that all draft-n certified products remain compatible with the products conforming to the final standards.",
+        "endOffset": 24881,
+        "startOffset": 21537
+      },
+      {
+        "index": 10,
+        "level": 3,
+        "title": "draft-n",
+        "value": "After the first draft of the IEEE 802.11n standard was published in 2006, many manufacturers began producing so-called \"draft-n\" products that claimed to comply with the standard draft, even before standard finalization which mean they might not be inter-operational with products produced according to IEEE 802.11 standard after the standard publication, nor even among themselves. The Wi-Fi Alliance began certifying products based on IEEE 802.11n draft 2.0 mid-2007. This certification program established a set of features and a level of interoperability across vendors supporting those features, thus providing one definition of \"draft n\" to ensure compatibility and interoperability. The baseline certification covers both 20 MHz and 40 MHz wide channels, and up to two spatial streams, for maximum throughputs of 144.4 Mbit/s for 20 MHz and 300 Mbit/s for 40 MHz (with short guard interval). A number of vendors in both the consumer and enterprise spaces have built products that have achieved this certification.",
+        "endOffset": 24881,
+        "startOffset": 22212
+      },
+      {
+        "index": 11,
+        "level": 2,
+        "title": "Timeline",
+        "value": "The following are milestones in the development of 802.11n:\n\n;September 11, 2002: The first meeting of the High-Throughput Study Group (HTSG) was held.  Earlier in the year, in the Wireless Next Generation standing committee (WNG SC), presentations were heard on why they need change and what the target throughput would be required to justify the amendments.  Compromise was reached in May 2002 to delay the start of the Study Group until September to allow 11g to complete major work during the July 2002 session.\n\n;September 11, 2003: The IEEE-SA New Standards Committee (NesCom) approved the Project Authorization Request (PAR) for the purpose of amending the 802.11-2007 standard.  The new 802.11 Task Group (TGn) is to develop a new amendment.  The TGn amendment is based on IEEE Std 802.11-2007, as amended by IEEE Std 802.11k-2008, IEEE Std 802.11r-2008, IEEE Std 802.11y-2008 and IEEE P802.11w.  TGn will be the 5th amendment to the 802.11-2007 standard.  The scope of this project is to define an amendment that shall define standardized modifications to both the 802.11 physical layers (PHY) and the 802.11 Medium Access Control Layer (MAC) so that modes of operation can be enabled that are capable of much higher throughputs, with a maximum throughput of at least 100 Mbit/s, as measured at the MAC data service access point (SAP).\n\n;September 15, 2003: The first meeting of the new 802.11 Task Group (TGn).\n\n;May 17, 2004: Call for Proposals was issued.\n\n;September 13, 2004: 32 first round of proposals were heard.\n\n;March 2005: Proposals were downselected to a single proposal, but there is not a 75% consensus on the one proposal.  Further efforts were expended over the next 3 sessions without being able to agree on one proposal.\n\n;July 2005: Previous competitors TGn Sync, WWiSE, and a third group, MITMOT, said that they would merge their respective proposals as a draft. The standardization process was expected to be completed by the second quarter of 2009.\n\n; January 19, 2006: The IEEE 802.11n Task Group approved the Joint Proposal's specification, enhanced by EWC's draft specification.\n\n;March 2006: IEEE 802.11 Working Group sent the 802.11n draft to its first letter ballot, allowing the 500+ 802.11 voters to review the document and suggest bug fixes, changes, and improvements.\n\n; May 2, 2006: The IEEE 802.11 Working Group voted not to forward draft 1.0 of the proposed 802.11n standard. Only 46.6% voted to approve the ballot. To proceed to the next step in the IEEE standards process, a majority vote of 75% is required. This letter ballot also generated approximately 12,000 comments—many more than anticipated.\n\n;November 2006: TGn voted to accept draft version 1.06, incorporating all accepted technical and editorial comment resolutions prior to this meeting. An additional 800 comment resolutions were approved during the November session which will be incorporated into the next revision of the draft. As of this meeting, three of the 18 comment topic ad hoc groups chartered in May had completed their work, and 88% of the technical comments had been resolved, with approximately 370 remaining.\n\n;January 19, 2007: The IEEE 802.11 Working Group unanimously (100 yes, 0 no, 5 abstaining) approved a request by the 802.11n Task Group to issue a new draft 2.0 of the proposed standard. Draft 2.0 was based on the Task Group's working draft version 1.10. Draft 2.0 was at this point in time the cumulative result of thousands of changes to the 11n document as based on all previous comments.\n\n;February 7, 2007: The results of Letter Ballot 95, a 15-day Procedural vote, passed with 97.99% approval and 2.01% disapproval. On the same day, 802.11 Working Group announced the opening of Letter Ballot 97. It invited detailed technical comments to closed on 9 March 2007.\n\n;March 9, 2007: Letter Ballot 97, the 30-day Technical vote to approve draft 2.0, closed. They were announced by IEEE 802 leadership during the Orlando Plenary on 12 March 2007. The ballot passed with an 83.4% approval, above the 75% minimum approval threshold. There were still approximately 3,076 unique comments, which were to be individually examined for incorporation into the next revision of draft 2.\n\n;June 25, 2007: The Wi-Fi Alliance announced its official certification program for devices based on draft 2.0.\n\n;September 7, 2007: Task Group agreed on all outstanding issues for draft 2.07. Draft 3.0 is authorized, with the expectation that it go to a sponsor ballot in November 2007.\n\n;November 2007: Draft 3.0 approved (240 voted affirmative, 43 negative, and 27 abstained). The editor was authorized to produce draft 3.01.\n\n;January 2008:Draft 3.02 approved. This version incorporates previously approved technical and editorial comments. There remain 127 unresolved technical comments. It was expected that all remaining comments will be resolved and that TGn and WG11 would subsequently release draft 4.0 for working group recirculation ballot following the March meeting.\n\n;May 2008:Draft 4.0 approved.\n\n;July 2008:Draft 5.0 approved and anticipated publication timeline modified.\n\n;September 2008: Draft 6.0 approved.\n\n;November 2008: Draft 7.0 approved.\n\n;January 2009:Draft 7.0 forwarded to sponsor ballot; the sponsor ballot was approved (158 for, 45 against, 21 abstaining); 241 comments were received.\n\n;March 2009: Draft 8.0 proceeded to sponsor ballot recirculation; the ballot passed by an 80.1% majority (75% required) (228 votes received, 169 approve, 42 not approve); 277 members are in the sponsor ballot pool; The comment resolution committee resolved the 77 comments received, and authorized the editor to create a draft 9.0 for further balloting.\n\n;April 4, 2009: Draft 9.0 passed sponsor ballot recirculation; the ballot passed by an 80.7% majority (75% required) (233 votes received, 171 approve, 41 not approve); 277 members are in the sponsor ballot pool; The comment resolution committee is resolving the 23 new comments received, and will authorize the editor to create a new draft for further balloting.\n\n;May 15, 2009: Draft 10.0 passed sponsor ballot recirculation.\n\n;June 23, 2009: Draft 11.0 passed sponsor ballot recirculation.\n\n;July 17, 2009: Final WG Approval passed with 53 approve, 1 against, 6 abstain. Unanimous approval to send Final WG draft 11.0 to RevCom.\n\n;September 11, 2009: RevCom/Standards Board approval.\n\n;October 29, 2009: Published.",
+        "endOffset": 32716,
+        "startOffset": 24881
+      },
+      {
+        "index": 12,
+        "level": 2,
+        "title": "Comparison",
+        "value": "",
+        "endOffset": 32763,
+        "startOffset": 32716
+      },
+      {
+        "index": 13,
+        "level": 2,
+        "title": "See also",
+        "value": "* List of WLAN channels\n* Spectral efficiency comparison table\n* WiMAX MIMO",
+        "endOffset": 32867,
+        "startOffset": 32763
+      },
+      {
+        "index": 14,
+        "level": 2,
+        "title": "Standard",
+        "value": "* \n* IEEE 802.11n-2009",
+        "endOffset": 33304,
+        "startOffset": 32867
+      },
+      {
+        "index": 15,
+        "level": 2,
+        "title": "Notes",
+        "value": "",
+        "endOffset": 33328,
+        "startOffset": 33304
+      },
+      {
+        "index": 16,
+        "level": 2,
+        "title": "References",
+        "value": "",
+        "endOffset": 33363,
+        "startOffset": 33328
+      },
+      {
+        "index": 17,
+        "level": 2,
+        "title": "Further reading",
+        "value": "* \n* \n* \n* \n\n\n\n\nN",
+        "endOffset": 34031,
+        "startOffset": 33363
+      }
+    ],
+    "tables": [
+      {
+        "tableNum": 0,
+        "endOffset": 14457,
+        "tableData": [
+          [
+            "MCSindex",
+            "Spatialstreams",
+            "Modulationtype",
+            "Codingrate",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)"
+          ],
+          [
+            "MCSindex",
+            "Spatialstreams",
+            "Modulationtype",
+            "Codingrate",
+            "20 MHz channel",
+            "20 MHz channel",
+            "40 MHz channel",
+            "40 MHz channel"
+          ],
+          [
+            "MCSindex",
+            "Spatialstreams",
+            "Modulationtype",
+            "Codingrate",
+            "800 ns GI",
+            "400 ns GI",
+            "800 ns GI",
+            "400 ns GI"
+          ],
+          [
+            "0",
+            "1",
+            "BPSK",
+            "1/2",
+            "6.5",
+            "7.2",
+            "13.5",
+            "15"
+          ],
+          [
+            "1",
+            "1",
+            "QPSK",
+            "1/2",
+            "13",
+            "14.4",
+            "27",
+            "30"
+          ],
+          [
+            "2",
+            "1",
+            "QPSK",
+            "3/4",
+            "19.5",
+            "21.7",
+            "40.5",
+            "45"
+          ],
+          [
+            "3",
+            "1",
+            "16-QAM",
+            "1/2",
+            "26",
+            "28.9",
+            "54",
+            "60"
+          ],
+          [
+            "4",
+            "1",
+            "16-QAM",
+            "3/4",
+            "39",
+            "43.3",
+            "81",
+            "90"
+          ],
+          [
+            "5",
+            "1",
+            "64-QAM",
+            "2/3",
+            "52",
+            "57.8",
+            "108",
+            "120"
+          ],
+          [
+            "6",
+            "1",
+            "64-QAM",
+            "3/4",
+            "58.5",
+            "65",
+            "121.5",
+            "135"
+          ],
+          [
+            "7",
+            "1",
+            "64-QAM",
+            "5/6",
+            "65",
+            "72.2",
+            "135",
+            "150"
+          ],
+          [
+            "8",
+            "2",
+            "BPSK",
+            "1/2",
+            "13",
+            "14.4",
+            "27",
+            "30"
+          ],
+          [
+            "9",
+            "2",
+            "QPSK",
+            "1/2",
+            "26",
+            "28.9",
+            "54",
+            "60"
+          ],
+          [
+            "10",
+            "2",
+            "QPSK",
+            "3/4",
+            "39",
+            "43.3",
+            "81",
+            "90"
+          ],
+          [
+            "11",
+            "2",
+            "16-QAM",
+            "1/2",
+            "52",
+            "57.8",
+            "108",
+            "120"
+          ],
+          [
+            "12",
+            "2",
+            "16-QAM",
+            "3/4",
+            "78",
+            "86.7",
+            "162",
+            "180"
+          ],
+          [
+            "13",
+            "2",
+            "64-QAM",
+            "2/3",
+            "104",
+            "115.6",
+            "216",
+            "240"
+          ],
+          [
+            "14",
+            "2",
+            "64-QAM",
+            "3/4",
+            "117",
+            "130",
+            "243",
+            "270"
+          ],
+          [
+            "15",
+            "2",
+            "64-QAM",
+            "5/6",
+            "130",
+            "144.4",
+            "270",
+            "300"
+          ],
+          [
+            "16",
+            "3",
+            "BPSK",
+            "1/2",
+            "19.5",
+            "21.7",
+            "40.5",
+            "45"
+          ],
+          [
+            "17",
+            "3",
+            "QPSK",
+            "1/2",
+            "39",
+            "43.3",
+            "81",
+            "90"
+          ],
+          [
+            "18",
+            "3",
+            "QPSK",
+            "3/4",
+            "58.5",
+            "65",
+            "121.5",
+            "135"
+          ],
+          [
+            "19",
+            "3",
+            "16-QAM",
+            "1/2",
+            "78",
+            "86.7",
+            "162",
+            "180"
+          ],
+          [
+            "20",
+            "3",
+            "16-QAM",
+            "3/4",
+            "117",
+            "130",
+            "243",
+            "270"
+          ],
+          [
+            "21",
+            "3",
+            "64-QAM",
+            "2/3",
+            "156",
+            "173.3",
+            "324",
+            "360"
+          ],
+          [
+            "22",
+            "3",
+            "64-QAM",
+            "3/4",
+            "175.5",
+            "195",
+            "364.5",
+            "405"
+          ],
+          [
+            "23",
+            "3",
+            "64-QAM",
+            "5/6",
+            "195",
+            "216.7",
+            "405",
+            "450"
+          ],
+          [
+            "24",
+            "4",
+            "BPSK",
+            "1/2",
+            "26",
+            "28.8",
+            "54",
+            "60"
+          ],
+          [
+            "25",
+            "4",
+            "QPSK",
+            "1/2",
+            "52",
+            "57.6",
+            "108",
+            "120"
+          ],
+          [
+            "26",
+            "4",
+            "QPSK",
+            "3/4",
+            "78",
+            "86.8",
+            "162",
+            "180"
+          ],
+          [
+            "27",
+            "4",
+            "16-QAM",
+            "1/2",
+            "104",
+            "115.6",
+            "216",
+            "240"
+          ],
+          [
+            "28",
+            "4",
+            "16-QAM",
+            "3/4",
+            "156",
+            "173.2",
+            "324",
+            "360"
+          ],
+          [
+            "29",
+            "4",
+            "64-QAM",
+            "2/3",
+            "208",
+            "231.2",
+            "432",
+            "480"
+          ],
+          [
+            "30",
+            "4",
+            "64-QAM",
+            "3/4",
+            "234",
+            "260",
+            "486",
+            "540"
+          ],
+          [
+            "31",
+            "4",
+            "64-QAM",
+            "5/6",
+            "260",
+            "288.8",
+            "540",
+            "600"
+          ],
+          [
+            "32",
+            "1",
+            "BPSK",
+            "1/4",
+            "",
+            "",
+            "6.0",
+            "6.7"
+          ],
+          [
+            "33 – 38",
+            "2",
+            "Asymmetric mod.",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "39 – 52",
+            "3",
+            "Asymmetric mod.",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "53 – 76",
+            "4",
+            "Asymmetric mod.",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "77 – 127",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "startOffset": 11253,
+        "tableCaption": null,
+        "tableContent": "MCSindex\tSpatialstreams\tModulationtype \tCodingrate\tData rate (Mbit/s) \tData rate (Mbit/s) \tData rate (Mbit/s) \tData rate (Mbit/s)\nMCSindex\tSpatialstreams\tModulationtype \tCodingrate\t20 MHz channel\t20 MHz channel\t40 MHz channel\t40 MHz channel\nMCSindex\tSpatialstreams\tModulationtype \tCodingrate\t800 ns GI     \t400 ns GI     \t800 ns GI     \t400 ns GI\n0       \t1             \tBPSK           \t1/2       \t6.5                \t7.2                \t13.5               \t15\n1       \t1             \tQPSK           \t1/2       \t13                 \t14.4               \t27                 \t30\n2       \t1             \tQPSK           \t3/4       \t19.5               \t21.7               \t40.5               \t45\n3       \t1             \t16-QAM         \t1/2       \t26                 \t28.9               \t54                 \t60\n4       \t1             \t16-QAM         \t3/4       \t39                 \t43.3               \t81                 \t90\n5       \t1             \t64-QAM         \t2/3       \t52                 \t57.8               \t108                \t120\n6       \t1             \t64-QAM         \t3/4       \t58.5               \t65                 \t121.5              \t135\n7       \t1             \t64-QAM         \t5/6       \t65                 \t72.2               \t135                \t150\n8       \t2             \tBPSK           \t1/2       \t13                 \t14.4               \t27                 \t30\n9       \t2             \tQPSK           \t1/2       \t26                 \t28.9               \t54                 \t60\n10      \t2             \tQPSK           \t3/4       \t39                 \t43.3               \t81                 \t90\n11      \t2             \t16-QAM         \t1/2       \t52                 \t57.8               \t108                \t120\n12      \t2             \t16-QAM         \t3/4       \t78                 \t86.7               \t162                \t180\n13      \t2             \t64-QAM         \t2/3       \t104                \t115.6              \t216                \t240\n14      \t2             \t64-QAM         \t3/4       \t117                \t130                \t243                \t270\n15      \t2             \t64-QAM         \t5/6       \t130                \t144.4              \t270                \t300\n16      \t3             \tBPSK           \t1/2       \t19.5               \t21.7               \t40.5               \t45\n17      \t3             \tQPSK           \t1/2       \t39                 \t43.3               \t81                 \t90\n18      \t3             \tQPSK           \t3/4       \t58.5               \t65                 \t121.5              \t135\n19      \t3             \t16-QAM         \t1/2       \t78                 \t86.7               \t162                \t180\n20      \t3             \t16-QAM         \t3/4       \t117                \t130                \t243                \t270\n21      \t3             \t64-QAM         \t2/3       \t156                \t173.3              \t324                \t360\n22      \t3             \t64-QAM         \t3/4       \t175.5              \t195                \t364.5              \t405\n23      \t3             \t64-QAM         \t5/6       \t195                \t216.7              \t405                \t450\n24      \t4             \tBPSK           \t1/2       \t26                 \t28.8               \t54                 \t60\n25      \t4             \tQPSK           \t1/2       \t52                 \t57.6               \t108                \t120\n26      \t4             \tQPSK           \t3/4       \t78                 \t86.8               \t162                \t180\n27      \t4             \t16-QAM         \t1/2       \t104                \t115.6              \t216                \t240\n28      \t4             \t16-QAM         \t3/4       \t156                \t173.2              \t324                \t360\n29      \t4             \t64-QAM         \t2/3       \t208                \t231.2              \t432                \t480\n30      \t4             \t64-QAM         \t3/4       \t234                \t260                \t486                \t540\n31      \t4             \t64-QAM         \t5/6       \t260                \t288.8              \t540                \t600\n32      \t1             \tBPSK           \t1/4       \t                   \t                   \t6.0                \t6.7\n33 – 38 \t2             \tAsymmetric mod.\t          \t                   \t                   \t                   \t\n39 – 52 \t3             \tAsymmetric mod.\t          \t                   \t                   \t                   \t\n53 – 76 \t4             \tAsymmetric mod.\t          \t                   \t                   \t                   \t\n77 – 127"
+      },
+      {
+        "tableNum": 1,
+        "endOffset": 21288,
+        "tableData": [
+          [
+            "Primarychannel",
+            "20 MHz",
+            "40 MHz above",
+            "40 MHz above",
+            "40 MHz above",
+            "40 MHz below",
+            "40 MHz below",
+            "40 MHz below"
+          ],
+          [
+            "Primarychannel",
+            "Blocks",
+            "2nd ch.",
+            "Center",
+            "Blocks",
+            "2nd ch.",
+            "Center",
+            "Blocks"
+          ],
+          [
+            "1",
+            "1–3",
+            "5",
+            "3",
+            "1–7",
+            "colspan=3",
+            "",
+            ""
+          ],
+          [
+            "2",
+            "1–4",
+            "6",
+            "4",
+            "1–8",
+            "colspan=3",
+            "",
+            ""
+          ],
+          [
+            "3",
+            "1–5",
+            "7",
+            "5",
+            "1–9",
+            "colspan=3",
+            "",
+            ""
+          ],
+          [
+            "4",
+            "2–6",
+            "8",
+            "6",
+            "2–10",
+            "colspan=3",
+            "",
+            ""
+          ],
+          [
+            "5",
+            "3–7",
+            "9",
+            "7",
+            "3–11",
+            "1",
+            "3",
+            "1–7"
+          ],
+          [
+            "6",
+            "4–8",
+            "10",
+            "8",
+            "4–12",
+            "2",
+            "4",
+            "1–8"
+          ],
+          [
+            "7",
+            "5–9",
+            "11",
+            "9",
+            "5–13",
+            "3",
+            "5",
+            "1–9"
+          ],
+          [
+            "8",
+            "6–10",
+            "12",
+            "10",
+            "6–13",
+            "4",
+            "6",
+            "2–10"
+          ],
+          [
+            "9",
+            "7–11",
+            "13",
+            "11",
+            "7–13",
+            "5",
+            "7",
+            "3–11"
+          ],
+          [
+            "10",
+            "8–12",
+            "colspan=3",
+            "6",
+            "8",
+            "4–12",
+            "",
+            ""
+          ],
+          [
+            "11",
+            "9–13",
+            "colspan=3",
+            "7",
+            "9",
+            "5–13",
+            "",
+            ""
+          ],
+          [
+            "12",
+            "10–13",
+            "colspan=3",
+            "8",
+            "10",
+            "6–13",
+            "",
+            ""
+          ],
+          [
+            "13",
+            "11–13",
+            "colspan=3",
+            "9",
+            "11",
+            "7–13",
+            "",
+            ""
+          ]
+        ],
+        "startOffset": 20364,
+        "tableCaption": null,
+        "tableContent": "Primarychannel\t20 MHz\t40 MHz above\t40 MHz above\t40 MHz above\t40 MHz below\t40 MHz below\t40 MHz below\nPrimarychannel\tBlocks     \t2nd ch.          \tCenter           \tBlocks           \t2nd ch.          \tCenter           \tBlocks\n1             \t1–3        \t5                \t3                \t1–7              \tcolspan=3        \t                 \t\n2             \t1–4        \t6                \t4                \t1–8              \tcolspan=3        \t                 \t\n3             \t1–5        \t7                \t5                \t1–9              \tcolspan=3        \t                 \t\n4             \t2–6        \t8                \t6                \t2–10             \tcolspan=3        \t                 \t\n5             \t3–7        \t9                \t7                \t3–11             \t1                \t3                \t1–7\n6             \t4–8        \t10               \t8                \t4–12             \t2                \t4                \t1–8\n7             \t5–9        \t11               \t9                \t5–13             \t3                \t5                \t1–9\n8             \t6–10       \t12               \t10               \t6–13             \t4                \t6                \t2–10\n9             \t7–11       \t13               \t11               \t7–13             \t5                \t7                \t3–11\n10            \t8–12       \tcolspan=3        \t6                \t8                \t4–12             \t                 \t\n11            \t9–13       \tcolspan=3        \t7                \t9                \t5–13             \t                 \t\n12            \t10–13      \tcolspan=3        \t8                \t10               \t6–13             \t                 \t\n13            \t11–13      \tcolspan=3        \t9                \t11               \t7–13"
+      }
+    ]
+  },
+  {
+    "id": "4ea479ae-008b-44fc-a8be-af5cfcbd23b3",
+    "title": "IEEE 802.11ac-2013",
+    "texts": [
+      {
+        "index": 0,
+        "level": 0,
+        "title": null,
+        "value": "IEEE 802.11ac-2013 or 802.11ac is a wireless networking standard in the IEEE 802.11 set of protocols (which is part of the Wi-Fi networking family), providing high-throughput wireless local area networks (WLANs) on the 5 GHz band. The standard has been retroactively labelled as Wi-Fi 5 by Wi-Fi Alliance.\n\nThe specification has multi-station throughput of at least 1.1 gigabit per second (1.1 Gbit/s) and single-link throughput of at least 500 megabits per second (0.5 Gbit/s). This is accomplished by extending the air-interface concepts embraced by 802.11n: wider RF bandwidth (up to 160 MHz), more MIMO spatial streams (up to eight), downlink multi-user MIMO (up to four clients), and high-density modulation (up to 256-QAM).\n\nThe Wi-Fi Alliance separated the introduction of ac wireless products into two phases (\"waves\"), named \"Wave 1\" and \"Wave 2\". From mid-2013, the alliance started certifying Wave 1 802.11ac products shipped by manufacturers, based on the IEEE 802.11ac Draft 3.0 (the IEEE standard was not finalized until later that year). Subsequently in 2016, Wi-Fi Alliance introduced the Wave 2 certification, which includes additional features like MU-MIMO (down-link only), 160 MHz channel width support, support for more 5 GHz channels, and four spatial streams (with four antennas; compared to three in Wave 1 and 802.11n, and eight in IEEE's 802.11ax specification). It meant Wave 2 products would have higher bandwidth and capacity than Wave 1 products.",
+        "endOffset": 4303,
+        "startOffset": 0
+      },
+      {
+        "index": 1,
+        "level": 2,
+        "title": "New technologies",
+        "value": "New technologies introduced with 802.11ac include the following:\n* Extended channel binding\n** Optional 160 MHz and mandatory 80 MHz channel bandwidth for stations; cf. 40 MHz maximum in 802.11n.\n* More MIMO spatial streams\n** Support for up to eight spatial streams (vs. four in 802.11n)\n* Downlink multi-user MIMO (MU-MIMO, allows up to four simultaneous downlink MU-MIMO clients)\n** Multiple STAs, each with one or more antennas, transmit or receive independent data streams simultaneously.\n*** Space-division multiple access (SDMA): streams not separated by frequency, but instead resolved spatially, analogous to 11n-style MIMO.\n** Downlink MU-MIMO (one transmitting device, multiple receiving devices) included as an optional mode.\n* Modulation\n** 256-QAM, rate 3/4 and 5/6, added as optional modes (vs. 64-QAM, rate 5/6 maximum in 802.11n).\n** Some vendors offer a non-standard 1024-QAM mode, providing 25% higher data rate compared to 256-QAM\n* Other elements/features\n** Beamforming with standardized sounding and feedback for compatibility between vendors (non-standard in 802.11n made it hard for beamforming to work effectively between different vendor products)\n** MAC modifications (mostly to support above changes)\n** Coexistence mechanisms for 20, 40, 80, and 160 MHz channels, 11ac and 11a/n devices\n** Adds four new fields to the PPDU header identifying the frame as a very high throughput (VHT) frame as opposed to 802.11n's high throughput (HT) or earlier. The first three fields in the header are readable by legacy devices to allow coexistence\n** DFS was mandated between channels 52 - 144 for 5 Ghz to reduce interference with weather stations using the same frequency band.",
+        "endOffset": 6501,
+        "startOffset": 4303
+      },
+      {
+        "index": 2,
+        "level": 2,
+        "title": "Features",
+        "value": "",
+        "endOffset": 7287,
+        "startOffset": 6501
+      },
+      {
+        "index": 3,
+        "level": 3,
+        "title": "Mandatory",
+        "value": "* Borrowed from the 802.11a/802.11g specifications:\n** 800 ns regular guard interval\n** Binary convolutional coding (BCC)\n** Single spatial stream\n* Newly introduced by the 802.11ac specification:\n** 80 MHz channel bandwidths",
+        "endOffset": 6802,
+        "startOffset": 6514
+      },
+      {
+        "index": 4,
+        "level": 3,
+        "title": "Optional",
+        "value": "* Borrowed from the 802.11n specification:\n** Two to four spatial streams\n** Low-density parity-check code (LDPC)\n** Space–time block coding (STBC)\n** Transmit beamforming (TxBF)\n** 400 ns short guard interval (SGI)\n* Newly introduced by the 802.11ac specification:\n** five to eight spatial streams\n** 160 MHz channel bandwidths (contiguous 80+80)\n** 80+80 MHz channel bonding (discontiguous 80+80)\n** MCS 8/9 (256-QAM)",
+        "endOffset": 7287,
+        "startOffset": 6802
+      },
+      {
+        "index": 5,
+        "level": 2,
+        "title": "New scenarios and configurations",
+        "value": "The single-link and multi-station enhancements supported by 802.11ac enable several new WLAN usage scenarios, such as simultaneous streaming of HD video to multiple clients throughout the home, rapid synchronization and backup of large data files, wireless display, large campus/auditorium deployments, and manufacturing floor automation.\n\nTo fully utilize their WLAN capacities, 802.11ac access points and routers have sufficient throughput to require the inclusion of a USB 3.0 interface to provide various services such as video streaming, FTP servers, and personal cloud services.  With storage locally attached through USB 2.0, filling the bandwidth made available by 802.11ac was not easily accomplished.",
+        "endOffset": 10172,
+        "startOffset": 7287
+      },
+      {
+        "index": 6,
+        "level": 3,
+        "title": "Example configurations",
+        "value": "All rates assume 256-QAM, rate 5/6:",
+        "endOffset": 10172,
+        "startOffset": 8762
+      },
+      {
+        "index": 7,
+        "level": 2,
+        "title": "Wave 1 vs. Wave 2",
+        "value": "Wave 2, referring to products introduced in 2016, offers a higher throughput than legacy Wave 1 products, those introduced starting in 2013. The maximum physical layer theoretical rate for Wave 1 is 1.3 Gbit/s, while Wave 2 can reach 2.34 Gbit/s. Wave 2 can therefore achieve 1 Gbit/s even if the real world throughput turns out to be only 50% of the theoretical rate. Wave 2 also supports a higher number of connected devices.",
+        "endOffset": 10651,
+        "startOffset": 10172
+      },
+      {
+        "index": 8,
+        "level": 2,
+        "title": "Data rates and speed",
+        "value": "Several companies are currently offering 802.11ac chipsets with higher modulation rates: MCS-10 and MCS-11 (1024-QAM), supported by Quantenna and Broadcom. Although technically not part of 802.11ac, these new MCS indices became official in the 802.11ax standard, ratified in 2021.\n\n160 MHz channels are unavailable in some countries due to regulatory issues that allocated some frequencies for other purposes.",
+        "endOffset": 20129,
+        "startOffset": 10651
+      },
+      {
+        "index": 9,
+        "level": 3,
+        "title": "Advertised speeds",
+        "value": "802.11ac-class device wireless speeds are often advertised as AC followed by a number, that number being the highest link rates in Mbit/s of all the simultaneously-usable radios in the device added up.  For example, an AC1900 access point might have 600 Mbit/s capability on its 2.4 GHz radio and 1300 Mbit/s capability on its 5 GHz radio.  No single client device could connect and achieve 1900 Mbit/s of throughput, but separate devices each connecting to the 2.4 GHz and 5 GHz radios could achieve combined throughput approaching 1900 Mbit/s.  Different possible stream configurations can add up to the same AC number.",
+        "endOffset": 20129,
+        "startOffset": 14952
+      },
+      {
+        "index": 10,
+        "level": 2,
+        "title": "Products",
+        "value": "",
+        "endOffset": 37903,
+        "startOffset": 20129
+      },
+      {
+        "index": 11,
+        "level": 3,
+        "title": "Commercial routers and access points",
+        "value": "Quantenna released the first 802.11ac chipset for retail Wi-Fi routers and consumer electronics on November 15, 2011. Redpine Signals released the first low power 802.11ac technology for smartphone application processors on December 14, 2011. On January 5, 2012, Broadcom announced its first 802.11ac Wi-Fi chips and partners and on April 27, 2012, Netgear announced the first Broadcom-enabled router. On May 14, 2012, Buffalo Technology released the world’s first 802.11ac products to market, releasing a wireless router and client bridge adapter. On December 6, 2012, Huawei announced commercial availability of the industry's first enterprise-level 802.11ac Access Point.\n\nMotorola Solutions is selling 802.11ac access points including the AP 8232. In April 2014, Hewlett-Packard started selling the HP 560 access point in the controller-based WLAN enterprise market segment.",
+        "endOffset": 23440,
+        "startOffset": 20143
+      },
+      {
+        "index": 12,
+        "level": 3,
+        "title": "Commercial laptops",
+        "value": "On June 7, 2012, it was reported that Asus had unveiled its ROG G75VX gaming notebook, which would be the first consumer-oriented notebook to be fully compliant with 802.11ac (albeit in its \"draft 2.0\" version).\n\nApple began implementing 802.11ac starting with the MacBook Air in June 2013, followed by the MacBook Pro and Mac Pro later that year.\n\n Hewlett-Packard incorporates 802.11ac compliance in laptop computers.",
+        "endOffset": 25505,
+        "startOffset": 23440
+      },
+      {
+        "index": 13,
+        "level": 3,
+        "title": "Commercial handsets (partial list)",
+        "value": "",
+        "endOffset": 31896,
+        "startOffset": 25505
+      },
+      {
+        "index": 14,
+        "level": 3,
+        "title": "Commercial tablets",
+        "value": "",
+        "endOffset": 32461,
+        "startOffset": 31896
+      },
+      {
+        "index": 15,
+        "level": 3,
+        "title": "Chipsets",
+        "value": "",
+        "endOffset": 37903,
+        "startOffset": 32461
+      },
+      {
+        "index": 16,
+        "level": 2,
+        "title": "Notes",
+        "value": "",
+        "endOffset": 37927,
+        "startOffset": 37903
+      },
+      {
+        "index": 17,
+        "level": 2,
+        "title": "Comparison",
+        "value": "",
+        "endOffset": 37993,
+        "startOffset": 37927
+      },
+      {
+        "index": 18,
+        "level": 2,
+        "title": "See also",
+        "value": "* IEEE 802.11ad",
+        "endOffset": 38027,
+        "startOffset": 37993
+      },
+      {
+        "index": 19,
+        "level": 2,
+        "title": "References",
+        "value": "",
+        "endOffset": 38055,
+        "startOffset": 38027
+      },
+      {
+        "index": 20,
+        "level": 2,
+        "title": "External links",
+        "value": "* 802.11ac Technology Introduction white paper \n* MIMO 802.11ac Test Architectures\n* 802.11ac: The Fifth Generation of Wi-Fi Technical Paper\n* 802.11ac primer\n* Intel Wireless Products Selection Guide\n\n\n\nac-2013",
+        "endOffset": 38939,
+        "startOffset": 38055
+      }
+    ],
+    "tables": [
+      {
+        "tableNum": 0,
+        "endOffset": 10170,
+        "tableData": [
+          [
+            "Scenario",
+            "Typical clientform factor",
+            "PHY link rate",
+            "Aggregatecapacity(speed)"
+          ],
+          [
+            "One-antenna AP, one-antenna STA, 80 MHz",
+            "Handheld",
+            "433 Mbit/s",
+            "433 Mbit/s"
+          ],
+          [
+            "Two-antenna AP, two-antenna STA, 80 MHz",
+            "Tablet, laptop",
+            "867 Mbit/s",
+            "867 Mbit/s"
+          ],
+          [
+            "One-antenna AP, one-antenna STA, 160 MHz",
+            "Handheld",
+            "867 Mbit/s",
+            "867 Mbit/s"
+          ],
+          [
+            "Three-antenna AP, three-antenna STA, 80 MHz",
+            "Laptop, PC",
+            "1.30 Gbit/s",
+            "1.30 Gbit/s"
+          ],
+          [
+            "Two-antenna AP, two-antenna STA, 160 MHz",
+            "Tablet, laptop",
+            "1.73 Gbit/s",
+            "1.73 Gbit/s"
+          ],
+          [
+            "Four-antenna AP, four one-antenna STAs, 160 MHz(MU-MIMO)",
+            "Handheld",
+            "867 Mbit/s to each STA",
+            "3.39 Gbit/s"
+          ],
+          [
+            "Eight-antenna AP, 160 MHz (MU-MIMO)\n* one four-antenna STA\n* one two-antenna STA\n* two one-antenna STAs",
+            "Digital TV, Set-top Box,Tablet, Laptop, PC, Handheld",
+            "* 3.47 Gbit/s to four-antenna STA\n* 1.73 Gbit/s to two-antenna STA\n* 867 Mbit/s to each one-antenna STA",
+            "6.93 Gbit/s"
+          ],
+          [
+            "Eight-antenna AP, four 2-antenna STAs, 160 MHz(MU-MIMO)",
+            "Digital TV, tablet, laptop, PC",
+            "1.73 Gbit/s to each STA",
+            "6.93 Gbit/s"
+          ]
+        ],
+        "startOffset": 8828,
+        "tableCaption": null,
+        "tableContent": "Scenario                                                     \tTypical clientform factor                           \tPHY link rate               \tAggregatecapacity(speed)\nOne-antenna AP, one-antenna STA, 80 MHz                 \tHandheld                                            \t433 Mbit/s             \t433 Mbit/s\nTwo-antenna AP, two-antenna STA, 80 MHz                 \tTablet, laptop                                      \t867 Mbit/s             \t867 Mbit/s\nOne-antenna AP, one-antenna STA, 160 MHz                \tHandheld                                            \t867 Mbit/s             \t867 Mbit/s\nThree-antenna AP, three-antenna STA, 80 MHz             \tLaptop, PC                                          \t1.30 Gbit/s            \t1.30 Gbit/s\nTwo-antenna AP, two-antenna STA, 160 MHz                \tTablet, laptop                                      \t1.73 Gbit/s            \t1.73 Gbit/s\nFour-antenna AP, four one-antenna STAs, 160 MHz(MU-MIMO)\tHandheld                                            \t867 Mbit/s to each STA \t3.39 Gbit/s\nEight-antenna AP, 160 MHz (MU-MIMO)\n* one four-antenna STA\n* one two-antenna STA\n* two one-antenna STAs\tDigital TV, Set-top Box,Tablet, Laptop, PC, Handheld\t\n* 3.47 Gbit/s to four-antenna STA\n* 1.73 Gbit/s to two-antenna STA\n* 867 Mbit/s to each one-antenna STA\t6.93 Gbit/s\nEight-antenna AP, four 2-antenna STAs, 160 MHz(MU-MIMO) \tDigital TV, tablet, laptop, PC                      \t1.73 Gbit/s to each STA\t6.93 Gbit/s"
+      },
+      {
+        "tableNum": 1,
+        "endOffset": 14534,
+        "tableData": [
+          [
+            "MCSindex",
+            "SpatialStreams",
+            "Modulationtype",
+            "Codingrate",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)",
+            "Data rate (Mbit/s)"
+          ],
+          [
+            "MCSindex",
+            "SpatialStreams",
+            "Modulationtype",
+            "Codingrate",
+            "20 MHz channels",
+            "20 MHz channels",
+            "40 MHz channels",
+            "40 MHz channels",
+            "80 MHz channels",
+            "80 MHz channels",
+            "160 MHz channels",
+            "160 MHz channels"
+          ],
+          [
+            "MCSindex",
+            "SpatialStreams",
+            "Modulationtype",
+            "Codingrate",
+            "800 ns",
+            "400 ns GI",
+            "800 ns GI",
+            "400 ns GI",
+            "800 ns GI",
+            "400 ns GI",
+            "800 ns GI",
+            "400 ns GI"
+          ],
+          [
+            "0",
+            "1",
+            "BPSK",
+            "1/2",
+            "6.5",
+            "7.2",
+            "13.5",
+            "15",
+            "29.3",
+            "32.5",
+            "58.5",
+            "65"
+          ],
+          [
+            "1",
+            "1",
+            "QPSK",
+            "1/2",
+            "13",
+            "14.4",
+            "27",
+            "30",
+            "58.5",
+            "65",
+            "117",
+            "130"
+          ],
+          [
+            "2",
+            "1",
+            "QPSK",
+            "3/4",
+            "19.5",
+            "21.7",
+            "40.5",
+            "45",
+            "87.8",
+            "97.5",
+            "175.5",
+            "195"
+          ],
+          [
+            "3",
+            "1",
+            "16-QAM",
+            "1/2",
+            "26",
+            "28.9",
+            "54",
+            "60",
+            "117",
+            "130",
+            "234",
+            "260"
+          ],
+          [
+            "4",
+            "1",
+            "16-QAM",
+            "3/4",
+            "39",
+            "43.3",
+            "81",
+            "90",
+            "175.5",
+            "195",
+            "351",
+            "390"
+          ],
+          [
+            "5",
+            "1",
+            "64-QAM",
+            "2/3",
+            "52",
+            "57.8",
+            "108",
+            "120",
+            "234",
+            "260",
+            "468",
+            "520"
+          ],
+          [
+            "6",
+            "1",
+            "64-QAM",
+            "3/4",
+            "58.5",
+            "65",
+            "121.5",
+            "135",
+            "263.3",
+            "292.5",
+            "526.5",
+            "585"
+          ],
+          [
+            "7",
+            "1",
+            "64-QAM",
+            "5/6",
+            "65",
+            "72.2",
+            "135",
+            "150",
+            "292.5",
+            "325",
+            "585",
+            "650"
+          ],
+          [
+            "8",
+            "1",
+            "256-QAM",
+            "3/4",
+            "78",
+            "86.7",
+            "162",
+            "180",
+            "351",
+            "390",
+            "702",
+            "780"
+          ],
+          [
+            "9",
+            "1",
+            "256-QAM",
+            "5/6",
+            "",
+            "",
+            "180",
+            "200",
+            "390",
+            "433.3",
+            "780",
+            "866.7"
+          ],
+          [
+            "0",
+            "2",
+            "BPSK",
+            "1/2",
+            "13",
+            "14.4",
+            "27",
+            "30",
+            "58.5",
+            "65",
+            "117",
+            "130"
+          ],
+          [
+            "1",
+            "2",
+            "QPSK",
+            "1/2",
+            "26",
+            "28.9",
+            "54",
+            "60",
+            "117",
+            "130",
+            "234",
+            "260"
+          ],
+          [
+            "2",
+            "2",
+            "QPSK",
+            "3/4",
+            "39",
+            "43.3",
+            "81",
+            "90",
+            "175.5",
+            "195",
+            "351",
+            "390"
+          ],
+          [
+            "3",
+            "2",
+            "16-QAM",
+            "1/2",
+            "52",
+            "57.8",
+            "108",
+            "120",
+            "234",
+            "260",
+            "468",
+            "520"
+          ],
+          [
+            "4",
+            "2",
+            "16-QAM",
+            "3/4",
+            "78",
+            "86.7",
+            "162",
+            "180",
+            "351",
+            "390",
+            "702",
+            "780"
+          ],
+          [
+            "5",
+            "2",
+            "64-QAM",
+            "2/3",
+            "104",
+            "115.6",
+            "216",
+            "240",
+            "468",
+            "520",
+            "936",
+            "1040"
+          ],
+          [
+            "6",
+            "2",
+            "64-QAM",
+            "3/4",
+            "117",
+            "130.3",
+            "243",
+            "270",
+            "526.5",
+            "585",
+            "1053",
+            "1170"
+          ],
+          [
+            "7",
+            "2",
+            "64-QAM",
+            "5/6",
+            "130",
+            "144.4",
+            "270",
+            "300",
+            "585",
+            "650",
+            "1170",
+            "1300"
+          ],
+          [
+            "8",
+            "2",
+            "256-QAM",
+            "3/4",
+            "156",
+            "173.3",
+            "324",
+            "360",
+            "702",
+            "780",
+            "1404",
+            "1560"
+          ],
+          [
+            "9",
+            "2",
+            "256-QAM",
+            "5/6",
+            "",
+            "",
+            "360",
+            "400",
+            "780",
+            "866.7",
+            "1560",
+            "1733.3"
+          ],
+          [
+            "0",
+            "3",
+            "BPSK",
+            "1/2",
+            "19.5",
+            "21.7",
+            "40.5",
+            "45",
+            "87.8",
+            "97.5",
+            "175.5",
+            "195"
+          ],
+          [
+            "1",
+            "3",
+            "QPSK",
+            "1/2",
+            "39",
+            "43.3",
+            "81",
+            "90",
+            "175.5",
+            "195",
+            "351",
+            "390"
+          ],
+          [
+            "2",
+            "3",
+            "QPSK",
+            "3/4",
+            "58.5",
+            "65",
+            "121.5",
+            "135",
+            "263.3",
+            "292.5",
+            "526.5",
+            "585"
+          ],
+          [
+            "3",
+            "3",
+            "16-QAM",
+            "1/2",
+            "78",
+            "86.7",
+            "162",
+            "180",
+            "351",
+            "390",
+            "702",
+            "780"
+          ],
+          [
+            "4",
+            "3",
+            "16-QAM",
+            "3/4",
+            "117",
+            "130",
+            "243",
+            "270",
+            "526.5",
+            "585",
+            "1053",
+            "1170"
+          ],
+          [
+            "5",
+            "3",
+            "64-QAM",
+            "2/3",
+            "156",
+            "173.3",
+            "324",
+            "360",
+            "702",
+            "780",
+            "1404",
+            "1560"
+          ],
+          [
+            "6",
+            "3",
+            "64-QAM",
+            "3/4",
+            "175.5",
+            "195",
+            "364.5",
+            "405",
+            "",
+            "",
+            "1579.5",
+            "1755"
+          ],
+          [
+            "7",
+            "3",
+            "64-QAM",
+            "5/6",
+            "195",
+            "216.7",
+            "405",
+            "450",
+            "877.5",
+            "975",
+            "1755",
+            "1950"
+          ],
+          [
+            "8",
+            "3",
+            "256-QAM",
+            "3/4",
+            "234",
+            "260",
+            "486",
+            "540",
+            "1053",
+            "1170",
+            "2106",
+            "2340"
+          ],
+          [
+            "9",
+            "3",
+            "256-QAM",
+            "5/6",
+            "260",
+            "288.9",
+            "540",
+            "600",
+            "1170",
+            "1300",
+            "2340",
+            "2600"
+          ],
+          [
+            "0",
+            "4",
+            "BPSK",
+            "1/2",
+            "26",
+            "28.8",
+            "54",
+            "60",
+            "117.2",
+            "130",
+            "234",
+            "260"
+          ],
+          [
+            "1",
+            "4",
+            "QPSK",
+            "1/2",
+            "52",
+            "57.6",
+            "108",
+            "120",
+            "234",
+            "260",
+            "468",
+            "520"
+          ],
+          [
+            "2",
+            "4",
+            "QPSK",
+            "3/4",
+            "78",
+            "86.8",
+            "162",
+            "180",
+            "351.2",
+            "390",
+            "702",
+            "780"
+          ],
+          [
+            "3",
+            "4",
+            "16-QAM",
+            "1/2",
+            "104",
+            "115.6",
+            "216",
+            "240",
+            "468",
+            "520",
+            "936",
+            "1040"
+          ],
+          [
+            "4",
+            "4",
+            "16-QAM",
+            "3/4",
+            "156",
+            "173.2",
+            "324",
+            "360",
+            "702",
+            "780",
+            "1404",
+            "1560"
+          ],
+          [
+            "5",
+            "4",
+            "64-QAM",
+            "2/3",
+            "208",
+            "231.2",
+            "432",
+            "480",
+            "936",
+            "1040",
+            "1872",
+            "2080"
+          ],
+          [
+            "6",
+            "4",
+            "64-QAM",
+            "3/4",
+            "234",
+            "260",
+            "486",
+            "540",
+            "1053.2",
+            "1170",
+            "2106",
+            "2340"
+          ],
+          [
+            "7",
+            "4",
+            "64-QAM",
+            "5/6",
+            "260",
+            "288.8",
+            "540",
+            "600",
+            "1170",
+            "1300",
+            "2340",
+            "2600"
+          ],
+          [
+            "8",
+            "4",
+            "256-QAM",
+            "3/4",
+            "312",
+            "346.8",
+            "648",
+            "720",
+            "1404",
+            "1560",
+            "2808",
+            "3120"
+          ],
+          [
+            "9",
+            "4",
+            "256-QAM",
+            "5/6",
+            "",
+            "",
+            "720",
+            "800",
+            "1560",
+            "1733.3",
+            "3120",
+            "3466.7"
+          ]
+        ],
+        "startOffset": 10677,
+        "tableCaption": null,
+        "tableContent": "MCSindex\tSpatialStreams\tModulationtype\tCodingrate\tData rate (Mbit/s)  \tData rate (Mbit/s)  \tData rate (Mbit/s)  \tData rate (Mbit/s)  \tData rate (Mbit/s)  \tData rate (Mbit/s)  \tData rate (Mbit/s)   \tData rate (Mbit/s)\nMCSindex\tSpatialStreams\tModulationtype\tCodingrate\t20 MHz channels\t20 MHz channels\t40 MHz channels\t40 MHz channels\t80 MHz channels\t80 MHz channels\t160 MHz channels\t160 MHz channels\nMCSindex\tSpatialStreams\tModulationtype\tCodingrate\t800 ns         \t400 ns GI      \t800 ns GI      \t400 ns GI      \t800 ns GI      \t400 ns GI      \t800 ns GI       \t400 ns GI\n0       \t1             \tBPSK          \t1/2       \t6.5                 \t7.2                 \t13.5                \t15                  \t29.3                \t32.5                \t58.5                 \t65\n1       \t1             \tQPSK          \t1/2       \t13                  \t14.4                \t27                  \t30                  \t58.5                \t65                  \t117                  \t130\n2       \t1             \tQPSK          \t3/4       \t19.5                \t21.7                \t40.5                \t45                  \t87.8                \t97.5                \t175.5                \t195\n3       \t1             \t16-QAM        \t1/2       \t26                  \t28.9                \t54                  \t60                  \t117                 \t130                 \t234                  \t260\n4       \t1             \t16-QAM        \t3/4       \t39                  \t43.3                \t81                  \t90                  \t175.5               \t195                 \t351                  \t390\n5       \t1             \t64-QAM        \t2/3       \t52                  \t57.8                \t108                 \t120                 \t234                 \t260                 \t468                  \t520\n6       \t1             \t64-QAM        \t3/4       \t58.5                \t65                  \t121.5               \t135                 \t263.3               \t292.5               \t526.5                \t585\n7       \t1             \t64-QAM        \t5/6       \t65                  \t72.2                \t135                 \t150                 \t292.5               \t325                 \t585                  \t650\n8       \t1             \t256-QAM       \t3/4       \t78                  \t86.7                \t162                 \t180                 \t351                 \t390                 \t702                  \t780\n9       \t1             \t256-QAM       \t5/6       \t                    \t                    \t180                 \t200                 \t390                 \t433.3               \t780                  \t866.7\n0       \t2             \tBPSK          \t1/2       \t13                  \t14.4                \t27                  \t30                  \t58.5                \t65                  \t117                  \t130\n1       \t2             \tQPSK          \t1/2       \t26                  \t28.9                \t54                  \t60                  \t117                 \t130                 \t234                  \t260\n2       \t2             \tQPSK          \t3/4       \t39                  \t43.3                \t81                  \t90                  \t175.5               \t195                 \t351                  \t390\n3       \t2             \t16-QAM        \t1/2       \t52                  \t57.8                \t108                 \t120                 \t234                 \t260                 \t468                  \t520\n4       \t2             \t16-QAM        \t3/4       \t78                  \t86.7                \t162                 \t180                 \t351                 \t390                 \t702                  \t780\n5       \t2             \t64-QAM        \t2/3       \t104                 \t115.6               \t216                 \t240                 \t468                 \t520                 \t936                  \t1040\n6       \t2             \t64-QAM        \t3/4       \t117                 \t130.3               \t243                 \t270                 \t526.5               \t585                 \t1053                 \t1170\n7       \t2             \t64-QAM        \t5/6       \t130                 \t144.4               \t270                 \t300                 \t585                 \t650                 \t1170                 \t1300\n8       \t2             \t256-QAM       \t3/4       \t156                 \t173.3               \t324                 \t360                 \t702                 \t780                 \t1404                 \t1560\n9       \t2             \t256-QAM       \t5/6       \t                    \t                    \t360                 \t400                 \t780                 \t866.7               \t1560                 \t1733.3\n0       \t3             \tBPSK          \t1/2       \t19.5                \t21.7                \t40.5                \t45                  \t87.8                \t97.5                \t175.5                \t195\n1       \t3             \tQPSK          \t1/2       \t39                  \t43.3                \t81                  \t90                  \t175.5               \t195                 \t351                  \t390\n2       \t3             \tQPSK          \t3/4       \t58.5                \t65                  \t121.5               \t135                 \t263.3               \t292.5               \t526.5                \t585\n3       \t3             \t16-QAM        \t1/2       \t78                  \t86.7                \t162                 \t180                 \t351                 \t390                 \t702                  \t780\n4       \t3             \t16-QAM        \t3/4       \t117                 \t130                 \t243                 \t270                 \t526.5               \t585                 \t1053                 \t1170\n5       \t3             \t64-QAM        \t2/3       \t156                 \t173.3               \t324                 \t360                 \t702                 \t780                 \t1404                 \t1560\n6       \t3             \t64-QAM        \t3/4       \t175.5               \t195                 \t364.5               \t405                 \t                    \t                    \t1579.5               \t1755\n7       \t3             \t64-QAM        \t5/6       \t195                 \t216.7               \t405                 \t450                 \t877.5               \t975                 \t1755                 \t1950\n8       \t3             \t256-QAM       \t3/4       \t234                 \t260                 \t486                 \t540                 \t1053                \t1170                \t2106                 \t2340\n9       \t3             \t256-QAM       \t5/6       \t260                 \t288.9               \t540                 \t600                 \t1170                \t1300                \t2340                 \t2600\n0       \t4             \tBPSK          \t1/2       \t26                  \t28.8                \t54                  \t60                  \t117.2               \t130                 \t234                  \t260\n1       \t4             \tQPSK          \t1/2       \t52                  \t57.6                \t108                 \t120                 \t234                 \t260                 \t468                  \t520\n2       \t4             \tQPSK          \t3/4       \t78                  \t86.8                \t162                 \t180                 \t351.2               \t390                 \t702                  \t780\n3       \t4             \t16-QAM        \t1/2       \t104                 \t115.6               \t216                 \t240                 \t468                 \t520                 \t936                  \t1040\n4       \t4             \t16-QAM        \t3/4       \t156                 \t173.2               \t324                 \t360                 \t702                 \t780                 \t1404                 \t1560\n5       \t4             \t64-QAM        \t2/3       \t208                 \t231.2               \t432                 \t480                 \t936                 \t1040                \t1872                 \t2080\n6       \t4             \t64-QAM        \t3/4       \t234                 \t260                 \t486                 \t540                 \t1053.2              \t1170                \t2106                 \t2340\n7       \t4             \t64-QAM        \t5/6       \t260                 \t288.8               \t540                 \t600                 \t1170                \t1300                \t2340                 \t2600\n8       \t4             \t256-QAM       \t3/4       \t312                 \t346.8               \t648                 \t720                 \t1404                \t1560                \t2808                 \t3120\n9       \t4             \t256-QAM       \t5/6       \t                    \t                    \t720                 \t800                 \t1560                \t1733.3              \t3120                 \t3466.7"
+      },
+      {
+        "tableNum": 2,
+        "endOffset": 20127,
+        "tableData": [
+          [
+            "Type",
+            "2.4 GHz bandMbit/s",
+            "2.4 GHz band config[all 40 MHz]",
+            "5 GHz bandMbit/s",
+            "5 GHz band config[all 80 MHz]"
+          ],
+          [
+            "AC450",
+            "-",
+            "-",
+            "433",
+            "1 stream @ MCS 9"
+          ],
+          [
+            "AC600",
+            "150",
+            "1 stream @ MCS 7",
+            "433",
+            "1 stream @ MCS 9"
+          ],
+          [
+            "AC750",
+            "300",
+            "2 streams @ MCS 7",
+            "433",
+            "1 stream @ MCS 9"
+          ],
+          [
+            "AC1000",
+            "300",
+            "2 streams @ MCS 7",
+            "650",
+            "2 streams @ MCS 7"
+          ],
+          [
+            "AC1200",
+            "300",
+            "2 streams @ MCS 7",
+            "867",
+            "2 streams @ MCS 9"
+          ],
+          [
+            "AC1300",
+            "400",
+            "2 streams @ 256-QAM",
+            "867",
+            "2 streams @ MCS 9"
+          ],
+          [
+            "AC1300",
+            "-",
+            "-",
+            "1,300",
+            "3 streams @ MCS 9"
+          ],
+          [
+            "AC1350",
+            "450",
+            "3 streams @ MCS 7",
+            "867",
+            "2 streams @ MCS 9"
+          ],
+          [
+            "AC1450",
+            "450",
+            "3 streams @ MCS 7",
+            "975",
+            "3 streams @ MCS 7"
+          ],
+          [
+            "AC1600",
+            "300",
+            "2 streams @ MCS 7",
+            "1,300",
+            "3 streams @ MCS 9"
+          ],
+          [
+            "AC1700",
+            "800",
+            "4 streams @ 256-QAM",
+            "867",
+            "2 streams @ MCS 9"
+          ],
+          [
+            "AC1750",
+            "450",
+            "3 streams @ MCS 7",
+            "1,300",
+            "3 streams @ MCS 9"
+          ],
+          [
+            "AC1900",
+            "600",
+            "3 streams @ 256-QAM",
+            "1,300",
+            "3 streams @ MCS 9"
+          ],
+          [
+            "AC2100",
+            "800",
+            "4 streams @ 256-QAM",
+            "1,300",
+            "3 streams @ MCS 9"
+          ],
+          [
+            "AC2200",
+            "450",
+            "3 streams @ MCS 7",
+            "1,733",
+            "4 streams @ MCS 9"
+          ],
+          [
+            "AC2300",
+            "600",
+            "4 streams @ MCS 7",
+            "1,625",
+            "3 streams @ 1024-QAM"
+          ],
+          [
+            "AC2400",
+            "600",
+            "4 streams @ MCS 7",
+            "1,733",
+            "4 streams @ MCS 9"
+          ],
+          [
+            "AC2600",
+            "800",
+            "4 streams @ 256-QAM",
+            "1,733",
+            "4 streams @ MCS 9"
+          ],
+          [
+            "AC2900",
+            "750",
+            "3 streams @ 1024-QAM",
+            "2,167",
+            "4 streams @ 1024-QAM"
+          ],
+          [
+            "AC3000",
+            "450",
+            "3 streams @ MCS 7",
+            "1,300 + 1,300",
+            "3 streams @ MCS 9 x 2"
+          ],
+          [
+            "AC3150",
+            "1000",
+            "4 streams @ 1024-QAM",
+            "2,167",
+            "4 streams @ 1024-QAM"
+          ],
+          [
+            "AC3200",
+            "600",
+            "3 streams @ 256-QAM",
+            "1,300 + 1,300",
+            "3 streams @ MCS 9 x 2"
+          ],
+          [
+            "AC5000",
+            "600",
+            "4 streams @ MCS 7",
+            "2,167 + 2,167",
+            "4 streams @ 1024-QAM x 2"
+          ],
+          [
+            "AC5300",
+            "1000",
+            "4 streams @ 1024-QAM",
+            "2,167 + 2,167",
+            "4 streams @ 1024-QAM x 2"
+          ]
+        ],
+        "startOffset": 15619,
+        "tableCaption": null,
+        "tableContent": "Type  \t2.4 GHz bandMbit/s\t2.4 GHz band config[all 40 MHz]\t5 GHz bandMbit/s\t5 GHz band config[all 80 MHz]\nAC450 \t-                      \t-                                        \t433                  \t1 stream @ MCS 9\nAC600 \t150                    \t1 stream @ MCS 7                         \t433                  \t1 stream @ MCS 9\nAC750 \t300                    \t2 streams @ MCS 7                        \t433                  \t1 stream @ MCS 9\nAC1000\t300                    \t2 streams @ MCS 7                        \t650                  \t2 streams @ MCS 7\nAC1200\t300                    \t2 streams @ MCS 7                        \t867                  \t2 streams @ MCS 9\nAC1300\t400                    \t2 streams @ 256-QAM                      \t867                  \t2 streams @ MCS 9\nAC1300\t-                      \t-                                        \t1,300                \t3 streams @ MCS 9\nAC1350\t450                    \t3 streams @ MCS 7                        \t867                  \t2 streams @ MCS 9\nAC1450\t450                    \t3 streams @ MCS 7                        \t975                  \t3 streams @ MCS 7\nAC1600\t300                    \t2 streams @ MCS 7                        \t1,300                \t3 streams @ MCS 9\nAC1700\t800                    \t4 streams @ 256-QAM                      \t867                  \t2 streams @ MCS 9\nAC1750\t450                    \t3 streams @ MCS 7                        \t1,300                \t3 streams @ MCS 9\nAC1900\t600                    \t3 streams @ 256-QAM                      \t1,300                \t3 streams @ MCS 9\nAC2100\t800                    \t4 streams @ 256-QAM                      \t1,300                \t3 streams @ MCS 9\nAC2200\t450                    \t3 streams @ MCS 7                        \t1,733                \t4 streams @ MCS 9\nAC2300\t600                    \t4 streams @ MCS 7                        \t1,625                \t3 streams @ 1024-QAM\nAC2400\t600                    \t4 streams @ MCS 7                        \t1,733                \t4 streams @ MCS 9\nAC2600\t800                    \t4 streams @ 256-QAM                      \t1,733                \t4 streams @ MCS 9\nAC2900\t750                    \t3 streams @ 1024-QAM                     \t2,167                \t4 streams @ 1024-QAM\nAC3000\t450                    \t3 streams @ MCS 7                        \t1,300 + 1,300        \t3 streams @ MCS 9 x 2\nAC3150\t1000                   \t4 streams @ 1024-QAM                     \t2,167                \t4 streams @ 1024-QAM\nAC3200\t600                    \t3 streams @ 256-QAM                      \t1,300 + 1,300        \t3 streams @ MCS 9 x 2\nAC5000\t600                    \t4 streams @ MCS 7                        \t2,167 + 2,167        \t4 streams @ 1024-QAM x 2\nAC5300\t1000                   \t4 streams @ 1024-QAM                     \t2,167 + 2,167        \t4 streams @ 1024-QAM x 2"
+      },
+      {
+        "tableNum": 3,
+        "endOffset": 31894,
+        "tableData": [
+          [
+            "Vendor",
+            "Model",
+            "Release Date",
+            "Chipset",
+            "Notes"
+          ],
+          [
+            "HTC",
+            "One (M7)",
+            "March 22, 2013",
+            "BCM4335",
+            "First 802.11ac-enabled handset announced February 19, 2013"
+          ],
+          [
+            "Samsung",
+            "Galaxy S4",
+            "April 26, 2013",
+            "BCM4335",
+            ""
+          ],
+          [
+            "Samsung",
+            "Galaxy Note 3",
+            "September 25, 2013",
+            "BCM4339",
+            "Subsequent Devices Include 802.11ac"
+          ],
+          [
+            "LG",
+            "LG Nexus 5",
+            "October 2013",
+            "BCM4339",
+            "BCM4339 is the updated version of the BCM4335"
+          ],
+          [
+            "Nokia",
+            "Lumia 1520",
+            "November 2013",
+            "WCN3680",
+            "First 802.11ac-enabled Windows Phone"
+          ],
+          [
+            "Nokia",
+            "Lumia Icon",
+            "February 20, 2014",
+            "WCN3680",
+            "Lumia 930 is Europe version of the same phone, also with 802.11ac"
+          ],
+          [
+            "HTC",
+            "One (M8)",
+            "March 25, 2014",
+            "WCN3680",
+            ""
+          ],
+          [
+            "Samsung",
+            "Galaxy S5",
+            "April 11, 2014",
+            "BCM4354",
+            ""
+          ],
+          [
+            "LG",
+            "G2",
+            "September 18, 2013",
+            "AWL9581",
+            ""
+          ],
+          [
+            "LG",
+            "G3",
+            "May 23, 2014",
+            "BCM4339",
+            ""
+          ],
+          [
+            "Amazon.com",
+            "Fire Phone",
+            "July 25, 2014",
+            "WCN3680",
+            ""
+          ],
+          [
+            "Samsung",
+            "Galaxy S5 Prime/SM-G906S",
+            "June 18, 2014",
+            "QCA6174",
+            ""
+          ],
+          [
+            "Samsung",
+            "Galaxy Alpha",
+            "September 7, 2014",
+            "E702A7",
+            ""
+          ],
+          [
+            "Apple",
+            "iPhone 6/Plus",
+            "September 19, 2014",
+            "BCM4345",
+            "First 802.11ac-enabled iOS devices"
+          ],
+          [
+            "Motorola",
+            "Nexus 6",
+            "October 16, 2014",
+            "BCM4356",
+            ""
+          ],
+          [
+            "Samsung",
+            "Galaxy Note 4",
+            "October 10, 2014",
+            "BCM4358",
+            ""
+          ],
+          [
+            "Samsung",
+            "Galaxy Note 5",
+            "August 21, 2015",
+            "BCM4359",
+            ""
+          ]
+        ],
+        "startOffset": 25612,
+        "tableCaption": null,
+        "tableContent": "Vendor    \tModel                   \tRelease Date      \tChipset\tNotes\nHTC       \tOne (M7)                \tMarch 22, 2013    \tBCM4335\tFirst 802.11ac-enabled handset announced February 19, 2013\nSamsung   \tGalaxy S4               \tApril 26, 2013    \tBCM4335\t\nSamsung   \tGalaxy Note 3           \tSeptember 25, 2013\tBCM4339\tSubsequent Devices Include 802.11ac\nLG        \tLG Nexus 5              \tOctober 2013      \tBCM4339\tBCM4339 is the updated version of the BCM4335\nNokia     \tLumia 1520              \tNovember 2013     \tWCN3680\tFirst 802.11ac-enabled Windows Phone\nNokia     \tLumia Icon              \tFebruary 20, 2014 \tWCN3680\tLumia 930 is Europe version of the same phone, also with 802.11ac\nHTC       \tOne (M8)                \tMarch 25, 2014    \tWCN3680\t\nSamsung   \tGalaxy S5               \tApril 11, 2014    \tBCM4354\t\nLG        \tG2                      \tSeptember 18, 2013\tAWL9581\t\nLG        \tG3                      \tMay 23, 2014      \tBCM4339\t\nAmazon.com\tFire Phone              \tJuly 25, 2014     \tWCN3680\t\nSamsung   \tGalaxy S5 Prime/SM-G906S\tJune 18, 2014     \tQCA6174\t\nSamsung   \tGalaxy Alpha            \tSeptember 7, 2014 \tE702A7 \t\nApple     \tiPhone 6/Plus           \tSeptember 19, 2014\tBCM4345\tFirst 802.11ac-enabled iOS devices\nMotorola  \tNexus 6                 \tOctober 16, 2014  \tBCM4356\t\nSamsung   \tGalaxy Note 4           \tOctober 10, 2014  \tBCM4358\t\nSamsung   \tGalaxy Note 5           \tAugust 21, 2015   \tBCM4359"
+      },
+      {
+        "tableNum": 4,
+        "endOffset": 32459,
+        "tableData": [
+          [
+            "Vendor",
+            "Model",
+            "Release Date",
+            "Chipset",
+            "Notes"
+          ],
+          [
+            "Microsoft",
+            "Surface Pro 3",
+            "June 20, 2014",
+            "Avastar 88W8897",
+            "802.11ac-enabled touchscreen computing device"
+          ],
+          [
+            "Apple",
+            "iPad Air 2",
+            "October 24, 2014",
+            "Broadcom BCM4350",
+            "First 802.11ac-enabled iOS tablet device"
+          ],
+          [
+            "Google",
+            "Nexus 9",
+            "November 3, 2014",
+            "Nvidia Tegra K1",
+            "2x2 MIMO"
+          ]
+        ],
+        "startOffset": 31987,
+        "tableCaption": null,
+        "tableContent": "Vendor   \tModel        \tRelease Date    \tChipset         \tNotes\nMicrosoft\tSurface Pro 3\tJune 20, 2014   \tAvastar 88W8897 \t802.11ac-enabled touchscreen computing device\nApple    \tiPad Air 2   \tOctober 24, 2014\tBroadcom BCM4350\tFirst 802.11ac-enabled iOS tablet device\nGoogle   \tNexus 9      \tNovember 3, 2014\tNvidia Tegra K1 \t2x2 MIMO"
+      },
+      {
+        "tableNum": 5,
+        "endOffset": 37902,
+        "tableData": [
+          [
+            "Vendor",
+            "Part #",
+            "Streams",
+            "LDPC",
+            "TxBF",
+            "256-QAM",
+            "Applications"
+          ],
+          [
+            "Broadcom",
+            "BCM43602",
+            "3",
+            "",
+            "",
+            "",
+            "routers, laptops"
+          ],
+          [
+            "Broadcom",
+            "BCM4360",
+            "3",
+            "",
+            "",
+            "",
+            "routers, laptops"
+          ],
+          [
+            "Broadcom",
+            "BCM43569",
+            "2",
+            "",
+            "",
+            "",
+            "DTV"
+          ],
+          [
+            "Broadcom",
+            "BCM4352",
+            "2",
+            "",
+            "",
+            "",
+            "tablets"
+          ],
+          [
+            "Broadcom",
+            "BCM4350",
+            "2",
+            "",
+            "",
+            "",
+            "tablets"
+          ],
+          [
+            "Broadcom",
+            "BCM4356",
+            "2",
+            "",
+            "",
+            "",
+            "handsets, tablets"
+          ],
+          [
+            "Broadcom",
+            "BCM4354",
+            "2",
+            "",
+            "",
+            "",
+            "handsets, tablets"
+          ],
+          [
+            "Broadcom",
+            "BCM4339",
+            "1",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "Broadcom",
+            "BCM4335",
+            "1",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "Broadcom",
+            "BCM4359",
+            "2",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "Broadcom",
+            "BCM43455",
+            "1",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "Marvell",
+            "Avastar 88W8897",
+            "2",
+            "",
+            "",
+            "",
+            "tablets"
+          ],
+          [
+            "Marvell",
+            "Avastar 88W8864",
+            "3",
+            "",
+            "",
+            "",
+            "routers"
+          ],
+          [
+            "Qualcomm",
+            "WCN3680",
+            "1",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "Qualcomm",
+            "",
+            "2",
+            "",
+            "",
+            "",
+            "tablets"
+          ],
+          [
+            "Qualcomm",
+            "QCA9880",
+            "3",
+            "",
+            "",
+            "",
+            "home routers"
+          ],
+          [
+            "Qualcomm",
+            "",
+            "3",
+            "",
+            "",
+            "",
+            "enterprise routers"
+          ],
+          [
+            "Qualcomm",
+            "QCA9892",
+            "2",
+            "",
+            "",
+            "",
+            "tablets, PtP Links"
+          ],
+          [
+            "Qualcomm",
+            "",
+            "4",
+            "",
+            "",
+            "",
+            "enterprise access points"
+          ],
+          [
+            "Qualcomm",
+            "QCA9992",
+            "3",
+            "",
+            "",
+            "",
+            "enterprise access points"
+          ],
+          [
+            "MediaTek",
+            "MT7610",
+            "1",
+            "",
+            "",
+            "",
+            "PC (PCIe or USB)"
+          ],
+          [
+            "MediaTek",
+            "MT7650",
+            "1",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "MediaTek",
+            "MT7612E",
+            "2",
+            "",
+            "",
+            "",
+            "laptops (PCIe 2.0)"
+          ],
+          [
+            "MediaTek",
+            "",
+            "2",
+            "",
+            "",
+            "",
+            "laptops (USB 3.0)"
+          ],
+          [
+            "Quantenna",
+            "QAC2300",
+            "4",
+            "",
+            "",
+            "",
+            "routers"
+          ],
+          [
+            "Redpine Signals",
+            "RS9117",
+            "1",
+            "",
+            "",
+            "",
+            "handsets"
+          ],
+          [
+            "Redpine Signals",
+            "RS9333",
+            "3",
+            "",
+            "",
+            "",
+            "routers"
+          ],
+          [
+            "Realtek",
+            "RTL8811AU",
+            "1",
+            "",
+            "",
+            "",
+            "adapter (USB 2.0)"
+          ],
+          [
+            "Realtek",
+            "RTL8812AU",
+            "2",
+            "",
+            "",
+            "",
+            "adapter (USB 3.0)"
+          ],
+          [
+            "Intel",
+            "AC-3160",
+            "1",
+            "",
+            "",
+            "",
+            "laptops"
+          ],
+          [
+            "Intel",
+            "AC-7260",
+            "2",
+            "",
+            "",
+            "",
+            "laptops"
+          ]
+        ],
+        "startOffset": 32476,
+        "tableCaption": null,
+        "tableContent": "Vendor         \tPart #         \tStreams\tLDPC\tTxBF\t256-QAM\tApplications\nBroadcom       \tBCM43602       \t3      \t    \t    \t       \trouters, laptops\nBroadcom       \tBCM4360        \t3      \t    \t    \t       \trouters, laptops\nBroadcom       \tBCM43569       \t2      \t    \t    \t       \tDTV\nBroadcom       \tBCM4352        \t2      \t    \t    \t       \ttablets\nBroadcom       \tBCM4350        \t2      \t    \t    \t       \ttablets\nBroadcom       \tBCM4356        \t2      \t    \t    \t       \thandsets, tablets\nBroadcom       \tBCM4354        \t2      \t    \t    \t       \thandsets, tablets\nBroadcom       \tBCM4339        \t1      \t    \t    \t       \thandsets\nBroadcom       \tBCM4335        \t1      \t    \t    \t       \thandsets\nBroadcom       \tBCM4359        \t2      \t    \t    \t       \thandsets\nBroadcom       \tBCM43455       \t1      \t    \t    \t       \thandsets\nMarvell        \tAvastar 88W8897\t2      \t    \t    \t       \ttablets\nMarvell        \tAvastar 88W8864\t3      \t    \t    \t       \trouters\nQualcomm       \tWCN3680        \t1      \t    \t    \t       \thandsets\nQualcomm       \t               \t2      \t    \t    \t       \ttablets\nQualcomm       \tQCA9880        \t3      \t    \t    \t       \thome routers\nQualcomm       \t               \t3      \t    \t    \t       \tenterprise routers\nQualcomm       \tQCA9892        \t2      \t    \t    \t       \ttablets, PtP Links\nQualcomm       \t               \t4      \t    \t    \t       \tenterprise access points\nQualcomm       \tQCA9992        \t3      \t    \t    \t       \tenterprise access points\nMediaTek       \tMT7610         \t1      \t    \t    \t       \tPC (PCIe or USB)\nMediaTek       \tMT7650         \t1      \t    \t    \t       \thandsets\nMediaTek       \tMT7612E        \t2      \t    \t    \t       \tlaptops (PCIe 2.0)\nMediaTek       \t               \t2      \t    \t    \t       \tlaptops (USB 3.0)\nQuantenna      \tQAC2300        \t4      \t    \t    \t       \trouters\nRedpine Signals\tRS9117         \t1      \t    \t    \t       \thandsets\nRedpine Signals\tRS9333         \t3      \t    \t    \t       \trouters\nRealtek        \tRTL8811AU      \t1      \t    \t    \t       \tadapter (USB 2.0)\nRealtek        \tRTL8812AU      \t2      \t    \t    \t       \tadapter (USB 3.0)\nIntel          \tAC-3160        \t1      \t    \t    \t       \tlaptops\nIntel          \tAC-7260        \t2      \t    \t    \t       \tlaptops"
+      }
+    ]
+  },
+  {
+    "id": "eaa49b6f-9293-44f7-9b0c-7ec51c7d29e9",
+    "title": "IEEE 802.11b-1999",
+    "texts": [
+      {
+        "index": 0,
+        "level": 0,
+        "title": null,
+        "value": "IEEE 802.11b-1999 or 802.11b is an amendment to the IEEE 802.11 wireless networking specification that extends throughout up to 11 Mbit/s using the same 2.4 GHz band. A related amendment was incorporated into the IEEE 802.11-2007 standard.\n\n802.11 is a set of IEEE standards that govern wireless networking transmission methods. They are commonly used today in their 802.11a, 802.11b, 802.11g, 802.11n, 802.11ac and 802.11ax versions to provide wireless connectivity in the home, office and some commercial establishments.",
+        "endOffset": 727,
+        "startOffset": 0
+      },
+      {
+        "index": 1,
+        "level": 2,
+        "title": "Description",
+        "value": "802.11b has a maximum raw data rate of 11 Mbit/s and uses the same CSMA/CA media access method defined in the original standard. Due to the CSMA/CA protocol overhead, in practice the maximum 802.11b throughput that an application can achieve is about 5.9 Mbit/s using TCP and 7.1 Mbit/s using UDP.\n\n802.11b products appeared on the market in mid-1999, since 802.11b is a direct extension of the DSSS (Direct-sequence spread spectrum) modulation technique defined in the original standard. The Apple iBook was the first mainstream computer sold with optional 802.11b networking. Technically, the 802.11b standard uses complementary code keying (CCK) as its modulation technique, which uses a specific set of length 8 complementary codes that was originally designed for OFDM  but was also suitable for use in 802.11b because of its low autocorrelation properties. The dramatic increase in throughput of 802.11b (compared to the original standard) along with simultaneous substantial price reductions led to the rapid acceptance of 802.11b as the definitive wireless LAN technology as well as to the formation of the Wi-Fi Alliance.\n\n802.11b devices suffer interference from other products operating in the 2.4 GHz band. Devices operating in the 2.4 GHz range include: microwave ovens, Bluetooth devices, baby monitors and cordless telephones. Interference issues and user density problems within the 2.4 GHz band have become a major concern and frustration for users.",
+        "endOffset": 3346,
+        "startOffset": 727
+      },
+      {
+        "index": 2,
+        "level": 2,
+        "title": "Range",
+        "value": "802.11b is used in a point-to-multipoint configuration, wherein an access point communicates via an omnidirectional antenna with mobile clients within the range of the access point.  Typical range depends on the radio frequency environment, output power and sensitivity of the receiver.  Allowable bandwidth is shared across clients in discrete channels.  A directional antenna focuses transmit and receive power into a smaller field which reduces interference and increases point-to-point range.  Designers of such installations who wish to remain within the law must however be careful about legal limitations on effective radiated power.\n\nSome 802.11b cards operate at 11 Mbit/s, but scale back to 5.5, then to 2, then to 1 Mbit/s (also known as Adaptive Rate Selection) in order to decrease the rate of re-broadcasts that result from errors.",
+        "endOffset": 4770,
+        "startOffset": 3346
+      },
+      {
+        "index": 3,
+        "level": 2,
+        "title": "Channels and frequencies",
+        "value": ":Note: Channel 14 is only allowed in Japan, Channels 12 & 13 are allowed in most parts of the world. More information can be found in the List of WLAN channels.",
+        "endOffset": 6391,
+        "startOffset": 4770
+      },
+      {
+        "index": 4,
+        "level": 2,
+        "title": "Comparison",
+        "value": "",
+        "endOffset": 6438,
+        "startOffset": 6391
+      },
+      {
+        "index": 5,
+        "level": 2,
+        "title": "See also",
+        "value": "* IEEE 802.11\n* IEEE 802.11g-2003\n* Wi-Fi\n* List of WLAN channels",
+        "endOffset": 6534,
+        "startOffset": 6438
+      },
+      {
+        "index": 6,
+        "level": 2,
+        "title": "Notes",
+        "value": "",
+        "endOffset": 6558,
+        "startOffset": 6534
+      },
+      {
+        "index": 7,
+        "level": 2,
+        "title": "References",
+        "value": "* \n* \n\n\n\n\nB\n\nja:IEEE 802.11#IEEE 802.11b",
+        "endOffset": 7110,
+        "startOffset": 6558
+      }
+    ],
+    "tables": [
+      {
+        "tableNum": 0,
+        "endOffset": 3344,
+        "tableData": [
+          [
+            "Code Length bits",
+            "Modulationtype",
+            "Symbol Rate",
+            "Bit per Symbol",
+            "Data rate(Mbit/s)"
+          ],
+          [
+            "11-bit Barker code",
+            "DBPSK",
+            "11/11 = 1",
+            "1",
+            "1"
+          ],
+          [
+            "11-bit Barker code",
+            "DQPSK",
+            "11/11 = 1",
+            "2",
+            "2"
+          ],
+          [
+            "8-bit CCK",
+            "QPSK",
+            "11/8 = 1.375",
+            "4",
+            "5.5"
+          ],
+          [
+            "8-bit CCK",
+            "QPSK",
+            "11/8 = 1.375",
+            "8",
+            "11"
+          ]
+        ],
+        "startOffset": 2998,
+        "tableCaption": null,
+        "tableContent": "Code Length bits  \tModulationtype\tSymbol Rate \tBit per Symbol\tData rate(Mbit/s)\n11-bit Barker code\tDBPSK         \t11/11 = 1   \t1             \t1\n11-bit Barker code\tDQPSK         \t11/11 = 1   \t2             \t2\n8-bit CCK         \tQPSK          \t11/8 = 1.375\t4             \t5.5\n8-bit CCK         \tQPSK          \t11/8 = 1.375\t8             \t11"
+      },
+      {
+        "tableNum": 1,
+        "endOffset": 6220,
+        "tableData": [
+          [
+            "Channel",
+            "Center frequency",
+            "Frequency delta",
+            "Channel width",
+            "Overlaps channels"
+          ],
+          [
+            "1",
+            "2.412 GHz",
+            "5 MHz",
+            "2.401–2.423 GHz",
+            "2-5"
+          ],
+          [
+            "2",
+            "2.417 GHz",
+            "5 MHz",
+            "2.406–2.428 GHz",
+            "1,3-6"
+          ],
+          [
+            "3",
+            "2.422 GHz",
+            "5 MHz",
+            "2.411–2.433 GHz",
+            "1–2,4-7"
+          ],
+          [
+            "4",
+            "2.427 GHz",
+            "5 MHz",
+            "2.416–2.438 GHz",
+            "1–3,5-8"
+          ],
+          [
+            "5",
+            "2.432 GHz",
+            "5 MHz",
+            "2.421–2.443 GHz",
+            "1–4,6-9"
+          ],
+          [
+            "6",
+            "2.437 GHz",
+            "5 MHz",
+            "2.426–2.448 GHz",
+            "2–5,7-10"
+          ],
+          [
+            "7",
+            "2.442 GHz",
+            "5 MHz",
+            "2.431–2.453 GHz",
+            "3–6,8-11"
+          ],
+          [
+            "8",
+            "2.447 GHz",
+            "5 MHz",
+            "2.436–2.458 GHz",
+            "4–7,9-12"
+          ],
+          [
+            "9",
+            "2.452 GHz",
+            "5 MHz",
+            "2.441–2.463 GHz",
+            "5–8,10-13"
+          ],
+          [
+            "10",
+            "2.457 GHz",
+            "5 MHz",
+            "2.446–2.468 GHz",
+            "6–9,11-13"
+          ],
+          [
+            "11",
+            "2.462 GHz",
+            "5 MHz",
+            "2.451–2.473 GHz",
+            "7-10,12-13"
+          ],
+          [
+            "12",
+            "2.467 GHz",
+            "5 MHz",
+            "2.456–2.478 GHz",
+            "8-11,13-14"
+          ],
+          [
+            "13",
+            "2.472 GHz",
+            "5 MHz",
+            "2.461–2.483 GHz",
+            "9-12, 14"
+          ],
+          [
+            "14",
+            "2.484 GHz",
+            "12 MHz",
+            "2.473–2.495 GHz",
+            "12-13"
+          ]
+        ],
+        "startOffset": 4907,
+        "tableCaption": "\nchannel to frequency map <ref>http://download.wcvirtual.com/reference/802%20Channel%20Freq%20Mappings.pdf{{dead link|date=November 2017 |bot=InternetArchiveBot |fix-attempted=yes }}</ref>",
+        "tableContent": "channel to frequency map http://download.wcvirtual.com/reference/802%20Channel%20Freq%20Mappings.pdf\n\nChannel\t Center frequency \tFrequency delta\tChannel width       \tOverlaps channels\n1      \t2.412 GHz              \t5 MHz     \t2.401–2.423 GHz\t2-5\n2      \t2.417 GHz              \t5 MHz     \t2.406–2.428 GHz\t1,3-6\n3      \t2.422 GHz              \t5 MHz     \t2.411–2.433 GHz\t1–2,4-7\n4      \t2.427 GHz              \t5 MHz     \t2.416–2.438 GHz\t1–3,5-8\n5      \t2.432 GHz              \t5 MHz     \t2.421–2.443 GHz\t1–4,6-9\n6      \t2.437 GHz              \t5 MHz     \t2.426–2.448 GHz\t2–5,7-10\n7      \t2.442 GHz              \t5 MHz     \t2.431–2.453 GHz\t3–6,8-11\n8      \t2.447 GHz              \t5 MHz     \t2.436–2.458 GHz\t4–7,9-12\n9      \t2.452 GHz              \t5 MHz     \t2.441–2.463 GHz\t5–8,10-13\n10     \t2.457 GHz              \t5 MHz     \t2.446–2.468 GHz\t6–9,11-13\n11     \t2.462 GHz              \t5 MHz     \t2.451–2.473 GHz\t7-10,12-13\n12     \t2.467 GHz              \t5 MHz     \t2.456–2.478 GHz\t8-11,13-14\n13     \t2.472 GHz              \t5 MHz     \t2.461–2.483 GHz\t9-12, 14\n14     \t2.484 GHz              \t12 MHz    \t2.473–2.495 GHz\t12-13"
+      }
+    ]
+  },
+  {
+    "id": "17015526-28cb-4706-8b3a-96fa9cae1bef",
+    "title": "Surface Laptop (1st generation)",
+    "texts": [
+      {
+        "index": 0,
+        "level": 0,
+        "title": null,
+        "value": "The Surface Laptop is a laptop computer designed by Microsoft as part of the company's Surface line of personal computing devices. When it debuted, the laptop was intended to compete with Apple's MacBook Air and MacBook Pro.\n\nThe laptop was announced at the #MicrosoftEDU event by Microsoft on 2 May 2017, alongside Windows 10 S and an updated version of Surface Arc Mouse that includes a large capacitive surface. It became available for pre-order on the same day, and began shipping on 15 June 2017.",
+        "endOffset": 3875,
+        "startOffset": 0
+      },
+      {
+        "index": 1,
+        "level": 2,
+        "title": "Configuration",
+        "value": "",
+        "endOffset": 5359,
+        "startOffset": 3875
+      },
+      {
+        "index": 2,
+        "level": 2,
+        "title": "Features",
+        "value": "* 7th generation Intel Kaby Lake CPU.\n* Intel HD and Iris Graphics GPU\n* Alcantara fabric keyboard with a 1.5mm travel backlit keys\n* Windows 10 S operating system\n* 13.5-inch PixelSense display with a 3:2 aspect ratio\n* 14.5 hour battery life\n* 110.6 Mbit/s SSD\n* Integrated vapor chambers into the aluminum finish",
+        "endOffset": 5703,
+        "startOffset": 5359
+      },
+      {
+        "index": 3,
+        "level": 2,
+        "title": "Hardware",
+        "value": "The Surface Laptop is the 5th addition to Surface lineup, following the Surface Pro, Surface Hub, Surface Book, and the Surface Studio. Unlike the other products, the Surface Laptop is aimed toward students. Microsoft claims a 14.5-hour battery life when running Windows 10 S, but testing suggests that the battery can be depleted to 50% in just 2.5 hours.Microsoft Surface Laptop: First impressions, details, release date – Business Insider It comes in four colors: Platinum, Graphite Gold, Burgundy, and Cobalt Blue as advertised.\n\nIt has a 13.5-inch \"PixelSense\" Display at 2256 × 1504 using a 3:2 aspect ratio. It features a 10-point touch screen along with Surface Pen support. Unlike other ultra-portables by Microsoft, this does not feature any sort of detachment mechanism from the keyboard.\n\nThe Surface Laptop uses seventh-generation \"Kaby Lake\" processors, with both Intel Core i5 and i7 variants. It uses Intel HD Graphics 620 on the Core i5 version, while the Core i7 model uses Intel Iris Plus 640.\n\nThree system memory options are available at purchase: 4, 8, and 16 GB and three SSD options: 128, 256, and 512 GB. These cannot be upgraded in the future. The SSD has a transfer speed of 110.6 Mbit/s, which is quite slow when compared to its competitors.Microsoft Surface Laptop Review: A Real Stunner, But Get Windows Pro\n\nThe Surface Laptop cannot be opened without destroying it, making it impossible to repair or upgrade by anyone except Microsoft. \nIt has an unremovable battery with a capacity of 45.2 Wh. All other parts are either glued or soldered.You Can’t Open the Microsoft Surface Laptop Without Literally Destroying It – MotherboardMicrosoft Surface Laptop Teardown",
+        "endOffset": 8095,
+        "startOffset": 5703
+      },
+      {
+        "index": 4,
+        "level": 2,
+        "title": "Software",
+        "value": "Surface Laptop models used to ship with Windows 10 S, a feature-limited edition of Windows 10 with restrictions on software usage which has now been replaced with Windows 10 in S Mode; users may only install software from Windows Store, and system settings are locked to only allow Microsoft Edge as the default web browser with Bing as its search engine, since third-party web browsers using custom layout engines are banned from Windows Store.\n\nThe device may be upgraded to Windows 10 Pro for free, which removes these restrictions.",
+        "endOffset": 9807,
+        "startOffset": 8095
+      },
+      {
+        "index": 5,
+        "level": 2,
+        "title": "Timeline",
+        "value": "",
+        "endOffset": 9845,
+        "startOffset": 9807
+      },
+      {
+        "index": 6,
+        "level": 2,
+        "title": "References",
+        "value": "",
+        "endOffset": 9875,
+        "startOffset": 9845
+      },
+      {
+        "index": 7,
+        "level": 2,
+        "title": "External links",
+        "value": "* \n*  \n\n\n\n\n\n\n\n1\nCategory:Computer-related introductions in 2017",
+        "endOffset": 10376,
+        "startOffset": 9875
+      }
+    ],
+    "tables": [
+      {
+        "tableNum": 0,
+        "endOffset": 5154,
+        "tableData": [
+          [
+            "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs",
+            "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs",
+            "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs",
+            "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs",
+            "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs",
+            "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs"
+          ],
+          [
+            "Price Tier in USD",
+            "CPU",
+            "Integrated GPU",
+            "RAM",
+            "Internal Storage",
+            "Color"
+          ],
+          [
+            "$799",
+            "Intel Core m3-7Y30 (1.0 to 2.6 GHz)",
+            "HD 615",
+            "4 GB",
+            "128 GB",
+            ""
+          ],
+          [
+            "$999",
+            "Intel Core i5-7200U (2.5 to 3.1 GHz)",
+            "HD 620",
+            "4 GB",
+            "128 GB",
+            ""
+          ],
+          [
+            "$1,099",
+            "Intel Core i5-7200U (2.5 to 3.1 GHz)",
+            "HD 620",
+            "8 GB",
+            "128 GB",
+            ""
+          ],
+          [
+            "$1,299",
+            "Intel Core i5-7200U (2.5 to 3.1 GHz)",
+            "HD 620",
+            "8 GB",
+            "256 GB",
+            ""
+          ],
+          [
+            "$1,599",
+            "Intel Core i7-7660U (2.5 to 4.0 GHz)",
+            "Iris 640",
+            "8 GB",
+            "256 GB",
+            ""
+          ],
+          [
+            "$2,199",
+            "Intel Core i7-7660U (2.5 to 4.0 GHz)",
+            "Iris 640",
+            "16 GB",
+            "512 GB",
+            ""
+          ],
+          [
+            "$2,699",
+            "Intel Core i7-7660U (2.5 to 4.0 GHz)",
+            "Iris 640",
+            "16 GB",
+            "1 TB",
+            ""
+          ]
+        ],
+        "startOffset": 3895,
+        "tableCaption": null,
+        "tableContent": "Surface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs\tSurface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs\tSurface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs\tSurface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs\tSurface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs\tSurface Laptop Configuration OptionsMicrosoft Surface Laptop tech specsCommercial Microsoft Surface Laptop tech specs\nPrice Tier in USD                                                                                                    \tCPU                                                                                                                  \tIntegrated GPU                                                                                                       \tRAM                                                                                                                  \tInternal Storage                                                                                                     \tColor\n$799                                                                                                                 \tIntel Core m3-7Y30 (1.0 to 2.6 GHz)                                                                             \tHD 615                                                                                                          \t4 GB                                                                                                            \t128 GB                                                                                                          \t\n$999                                                                                                                 \tIntel Core i5-7200U (2.5 to 3.1 GHz)                                                                            \tHD 620                                                                                                          \t4 GB                                                                                                            \t128 GB                                                                                                          \t\n$1,099                                                                                                               \tIntel Core i5-7200U (2.5 to 3.1 GHz)                                                                            \tHD 620                                                                                                          \t8 GB                                                                                                            \t128 GB                                                                                                          \t\n$1,299                                                                                                               \tIntel Core i5-7200U (2.5 to 3.1 GHz)                                                                            \tHD 620                                                                                                          \t8 GB                                                                                                            \t256 GB                                                                                                          \t\n$1,599                                                                                                               \tIntel Core i7-7660U (2.5 to 4.0 GHz)                                                                            \tIris 640                                                                                                        \t8 GB                                                                                                            \t256 GB                                                                                                          \t\n$2,199                                                                                                               \tIntel Core i7-7660U (2.5 to 4.0 GHz)                                                                            \tIris 640                                                                                                        \t16 GB                                                                                                           \t512 GB                                                                                                          \t\n$2,699                                                                                                               \tIntel Core i7-7660U (2.5 to 4.0 GHz)                                                                            \tIris 640                                                                                                        \t16 GB                                                                                                           \t1 TB"
+      }
+    ]
+  },
+  {
+    "id": "a3b5fe31-d97f-4503-94c0-6b80598ee225",
+    "title": "Google Nest",
+    "texts": [
+      {
+        "index": 0,
+        "level": 0,
+        "title": null,
+        "value": "Google Nest is a line of smart home products including smart speakers, smart displays, streaming devices, thermostats, smoke detectors, routers and security systems including smart doorbells, cameras and smart locks.\n\nThe Nest brand name was originally owned by Nest Labs, co-founded by former Apple engineers Tony Fadell and Matt Rogers in 2010. Its flagship product, which was the company's first offering, is the Nest Learning Thermostat, introduced in 2011. The product is programmable, self-learning, sensor-driven, and Wi-Fi-enabled: features that are often found in other Nest products. It was followed by the Nest Protect smoke and carbon monoxide detectors in October 2013. After its acquisition of Dropcam in 2014, the company introduced its Nest Cam branding of security cameras beginning in June 2015.\n\nThe company quickly expanded to more than 130 employees by the end of 2012. Google acquired Nest Labs for US$3.2 billion in January 2014, when the company employed 280. As of late 2015, Nest employs more than 1,100 and added a primary engineering center in Seattle.\n\nAfter Google reorganized itself under the holding company Alphabet Inc., Nest operated independently of Google from 2015 to 2018. However, in 2018, Nest was merged into Google's home-devices unit led by Rishi Chandra, effectively ceasing to exist as a separate business. In July 2018, it was announced that all Google Home electronics products will henceforth be marketed under the brand Google Nest.",
+        "endOffset": 5526,
+        "startOffset": 0
+      },
+      {
+        "index": 1,
+        "level": 2,
+        "title": "History",
+        "value": "",
+        "endOffset": 22486,
+        "startOffset": 5526
+      },
+      {
+        "index": 2,
+        "level": 3,
+        "title": "Nest Labs before acquisition by Google",
+        "value": "Nest Labs was founded in 2010 by former Apple engineers Tony Fadell and Matt Rogers. The idea came when Fadell was building a vacation home and found all of the available thermostats on the market to be inadequate, motivated to bring something better on the market. Early investors in Nest Labs included Shasta Ventures and Kleiner Perkins.",
+        "endOffset": 6365,
+        "startOffset": 5632
+      },
+      {
+        "index": 3,
+        "level": 3,
+        "title": "Acquisition by Google of Nest Labs, Dropcam, and Revolv",
+        "value": "On January 13, 2014, Google announced plans to acquire Nest Labs for $3.2 billion in cash. Google completed the acquisition the next day, on January 14, 2014. The company would operate independently from Google's other businesses.\n\nIn June 2014, it was announced that Nest would buy camera startup Dropcam for $555 million. With the purchase, Dropcam became integrated with other Nest products; if the Protect alarm is triggered, the Dropcam can automatically start recording, and the Thermostat can use Dropcam to sense for motion.\n\nIn September 2014, the Nest Thermostat and Nest Protect (a smoke alarm) became available in Belgium, France, Ireland, and the Netherlands. Initially, they were sold in approximately 400 stores across Europe, with another 150 stores to be added by the end of the year. In June 2015, the new Nest Cam, replacing the Dropcam, was announced, together with the second generation of the Nest Protect; there were internal reports that sales of the rebranded camera fell.\n\nOn October 24, 2014, Nest both acquired the hub service Revolv, and discontinued its product line, gaining the expertise of Revolv's staff.",
+        "endOffset": 9954,
+        "startOffset": 6365
+      },
+      {
+        "index": 4,
+        "level": 3,
+        "title": "Nest as a subsidiary of Alphabet Inc.",
+        "value": "In August 2015, Google announced that it would restructure its operations under a new parent company, Alphabet Inc., with Nest being separated from Google as a subsidiary of the new holding company.\n\nIn January 2016, some Nest thermostats stopped working, a fault attributed to a software update a fortnight earlier. There were no lawsuits, individual or class-action, due to an arbitration clause in the contract.\n\nAll Revolv smart hubs, costing several hundred dollars, were deliberately remotely bricked on May 15, 2016; notice was posted on the company's website in February. The story became news on April 4. The \"lifetime subscription\" to Revolv's online service, which had been sold with the hub, was defined by Nest to be the lifetime of the device, which ended May 15.\n\nNest's decision to brick the hubs, and its \"acerbic\" corporate culture, faced substantial criticism from within Google/Alphabet and in press coverage. Many of Nest's staffers came from Dropcam and Revolv, and by November 2015, about 70 of about 1000 staffers had quit, causing management concern. Some countermeasures had been taken in takeover deals, to financially discourage senior people from leaving before set dates. Of the ~100 Dropcam staffers, about half had left by March 2016, when former Dropcam CEO Greg Duffy (who left 8 months after the takeover) wrote a post openly regretting selling his company to Nest. He stated that about 500 people had left (of a 1200-person staff).\n\nOn June 6, 2016, Tony Fadell, the Nest CEO, announced in a blog post that he was leaving the company he founded with Matt Rogers and stepping into an \"advisory\" role. At this point the Nest acquisition was described by some press as a \"disaster\" for Google. As of mid-June 2016, Nest's problems were considered symptomatic of the limited market for home automation. According to Frank Gillet of Forrester Research, only 6% of American households possessed internet-connected devices such as appliances, home-monitoring systems, speakers, or lighting. He also predicted this percentage would grow to only 15% by 2021. Furthermore, 72% of respondents in a 2016 British survey conducted by Pricewaterhouse Coopers did not foresee adopting smart-home technology over the next two to five years.",
+        "endOffset": 17563,
+        "startOffset": 9954
+      },
+      {
+        "index": 5,
+        "level": 3,
+        "title": "Nest as a part of Google hardware division",
+        "value": "On February 7, 2018, it was announced by hardware head Rick Osterloh that Nest had been merged into Google's hardware division, directly alongside units such as Google Home and Chromecast. It would retain its separate Palo Alto headquarters, but Nest CEO Marwan Fawaz would now report to Osterloh, and there were plans for tighter integration with Google platforms and software such as Google Assistant in future products. Shortly after the announcement, co-founder and chief product officer Matt Rogers announced his plans to leave the company.\n\nOn July 18, 2018, Nest CEO Marwan Fawaz stepped down. Nest was merged with Google's home devices team, led by Rishi Chandra. During the Google I/O keynote on May 7, 2019, it was announced that Google Nest will now serve as the blanket branding for all of Google's home products. The Google Home Hub was retroactively renamed Google Nest Hub, while a new and larger version of the product is now available called the Nest Hub Max with both a larger screen and an amplified speaker, for a greater low-end audio experience. Also, product lines such as Chromecast, Google Home, and Google Wifi will now be marketed under the Google Nest brand. In addition, Nest began to deprecate its own internal platforms, announcing the discontinuation of the existing \"Works with Nest\" program in favor of Google Assistant going forward, and pushing users to migrate themselves from Nest's account system to Google accounts. Google published Nest-specific privacy information outlining a commitment to transparency, not selling personal information, and giving users control of their data.",
+        "endOffset": 20813,
+        "startOffset": 17563
+      },
+      {
+        "index": 6,
+        "level": 3,
+        "title": "Partnership with ADT",
+        "value": "In August 2020 Google announced intent to invest $450 million in ADT Inc. for a 6.6% stake in the company. The companies intend to integrate Nest devices with ADT's security monitoring services and eventually make them the “cornerstone of ADT’s smart home offering”, according to Nest. Upon the announcement, the shares of ADT doubled in value and hit all-time high of $17.21.",
+        "endOffset": 21962,
+        "startOffset": 20813
+      },
+      {
+        "index": 7,
+        "level": 3,
+        "title": "Use with Amazon Alexa",
+        "value": "As of mid-2022, Google's newer Nest cameras will now work with Amazon Alexa devices such as Amazon Echo Show, Fire TV, and Fire Tablet to view captured security camera footage.",
+        "endOffset": 22486,
+        "startOffset": 21962
+      },
+      {
+        "index": 8,
+        "level": 2,
+        "title": "Products",
+        "value": "",
+        "endOffset": 44375,
+        "startOffset": 22486
+      },
+      {
+        "index": 9,
+        "level": 3,
+        "title": "Nest Learning Thermostat",
+        "value": "The Nest Learning Thermostat is an electronic, programmable, and self-learning Wi-Fi-enabled thermostat that optimizes heating and cooling of homes and businesses to conserve energy. It is based on a machine-learning algorithm: for the first weeks users have to regulate the thermostat in order to provide the reference data set. Nest can then learn people's schedules, at which temperature they are used to and when. Using built-in sensors and phones' locations it can shift into energy-saving mode when it realizes nobody is at home.\n\n\n\n\n\nThe Nest Thermostat is built around an operating system that allows interaction with the thermostat via spinning and clicking of its control wheel (or swiping and tapping on the 2020 Nest Thermostat), which brings up option menus for switching from heating to cooling, access to device settings, energy history, and scheduling. Users can control Nest without a touch screen or other input devices. As the thermostat is connected to the Internet, the company can push updates to fix bugs, improve performance and add additional features. For updates to occur automatically, the thermostat must be connected to Wi‑Fi and the battery must have at least a 3.7 V charge to give enough power to complete the download and installation  of the update.\n\nThe operating system itself is based on Linux 2.6.37 and many other free software components.\n\nNest is currently available for sale in the United States, Canada, Mexico, the United Kingdom, Belgium, France, Ireland, the Netherlands, Germany, Austria, Italy, and Spain. It is, however, compatible with many heating and cooling automation systems in other countries.\n\nIn September 2017, Nest released the Thermostat E, a lower-priced version of the original Nest Thermostat. It is similar in functionality to the standard model, except with a plastic, ceramic-like bezel ring (instead of metal) and a \"frosted\" overlay for its display. Unlike the original, the screen only activates when the device is being used; these design changes are intended to make the device appear more natural within a home. The Thermostat E also does not feature as many wiring connectors as the higher-end model; Nest stated that this would make it support at least 85% of homes (as opposed to 95% for the standard model).\n\nIn October 2020 Google released the \"Nest Thermostat\" for the North American market.  Pricing was made more accessible and features a mirror-like face, among other significant physical changes. The rotating ring found on other Nest models was replaced with a touch-sensitive strip on the right side of the thermostat body, with swiping and tapping of the touch-sensitive strip being the input method for this model. Learning features have been removed along with support for remote sensors. HVAC compatibility is the same as the Nest Thermostat E, although the bases of the 2020 Nest Thermostat and Nest Thermostat E are not interchangeable.",
+        "endOffset": 29232,
+        "startOffset": 22500
+      },
+      {
+        "index": 10,
+        "level": 3,
+        "title": "Nest Protect",
+        "value": "In October 2013, Nest announced its second product, the Nest Protect smoke and carbon monoxide detector. The Nest Protect is available in both black and white (the black is exclusively sold through Nest directly) and also comes in battery or AC-powered models. The Nest Protect features a multicolored light ring which is color-coded to indicate different operations, such as yellow to indicate an early warning or red if an alarm is sounding. The ring also has a motion detector which turns it white briefly when someone passes under to provide illumination. The Nest Protect warns of an alarm sounding briefly before it does. It is also able to communicate with the Nest Thermostat to provide the Auto-Away feature information that someone is present in the house, as well as to shut off the furnace in the event of a fire or carbon monoxide. It is available for sale in the United States, Canada, the United Kingdom, Belgium, France, Ireland, and the Netherlands.\n\nOn April 3, 2014, sales of the Nest Protect were suspended, due to the potential for the alarm feature to be accidentally disabled.\n 440,000 existing Nest Protect units were recalled because of this problem on May 21, 2014, and a software update was distributed to disable this functionality.By Tom Cheredar, VentureBeat.\"/ Nest recalls 440K smoke alarms that shut off unintentionally.\" May 21, 2014. Retrieved May 22, 2014.\n\nOn June 17, 2015, Nest launched a new version of the Nest Protect (officially termed the \"second generation\"). The differences from the first generation Nest Protect includes an improved sensor, which uses two wavelengths of light, allowing it to detect both smoldering and flaming fires. The carbon monoxide sensor lasts longer, resulting in the new Nest Protect lasting 10 years, whereas the original Nest Protect lasts seven years. The new Nest Protect can be silenced using a smart device, if not in the US or Canada. When not home, the new Nest Protect will test itself using a built-in microphone. Safety Rewards allows Nest Protect users that have their insurance through American Family and Liberty Mutual to get savings off their bill.",
+        "endOffset": 32997,
+        "startOffset": 29232
+      },
+      {
+        "index": 11,
+        "level": 3,
+        "title": "Nest Cam Indoor",
+        "value": "In June 2014, Nest acquired Dropcam, maker of the Dropcam security camera. In June 2015, Nest announced the Nest Cam, an upgraded and rebranded security camera based on the Dropcam. Features are a 1080p video resolution, a rotating, magnetic stand, night vision, two-way talk, sound and motion alerts, and optional Nest Aware cloud services for an additional fee. It was renamed Nest Cam Indoor following the announcement of the Nest Cam Outdoor in July 2016. In 2021, Google announced the second-generation Nest Cam Indoor, which is either battery-powered or wired.\n\nSeveral security flaws with Nest Cam products were reported in March 2017, allowing a burglar to hack the camera's always-on Bluetooth signal and stop recording. Nest released a security update later that month that fixed the vulnerabilities.",
+        "endOffset": 34465,
+        "startOffset": 32997
+      },
+      {
+        "index": 12,
+        "level": 3,
+        "title": "Nest Cam Outdoor",
+        "value": "Nest Cam Outdoor was announced in July 2016 and is a version of the Nest Cam adapted for outdoor monitoring. The main differences from the Nest Cam Indoor is in its design which is built to withstand outdoor conditions. In 2021, Google announced the second-generation, battery-powered Nest Cam Outdoor.",
+        "endOffset": 35151,
+        "startOffset": 34465
+      },
+      {
+        "index": 13,
+        "level": 3,
+        "title": "Nest Cam IQ",
+        "value": "Nest Cam IQ was announced in June 2017 and is a more premium model of their Nest Cam Indoor. It features a 4K camera sensor with HDR. It also comes with the ability to recognize and distinguish between different faces when using the Nest Aware service. It also has several minor upgrades, such as better wi-fi connectivity, brighter infrared LEDs, a more powerful speaker in addition to added microphones, and a close-up tracking view, which zooms in on action occurring within view of the camera.\n\nA weatherproof outdoor model was announced in September 2017. The indoor version of the Cam IQ also received an update to add Google Assistant functionality to the device in 2018.\n\nIn 2021, the Nest Cam IQ Indoor and Outdoor were both discontinued ahead of Google's planned launch of a new line of security cameras.",
+        "endOffset": 37461,
+        "startOffset": 35151
+      },
+      {
+        "index": 14,
+        "level": 3,
+        "title": "Nest Secure",
+        "value": "Nest Secure is a home security system announced in September 2017. The system consists of Nest Guard (an alarm, keypad, and motion sensor with embedded microphone), Nest Detect (a door/window and motion sensor), and Nest Tag (a key chain fob). The product was released in November 2017. Nest also has a partnership with Brinks Home Security for a monthly plan so that the Nest Protect system can be professionally monitored.\n\nIn February 2019, the Nest Guard received an update to add Google Assistant, allowing it to effectively double as a smart speaker similar to Google Home for general voice commands. This addition has faced criticism, as the presence of a microphone inside the device was not adequately disclosed in product specifications. Google stated that its inclusion of a microphone was accidentally not included in the listed specifications, and was originally intended to enable future sensor functionality.\n\nOn 19 October 2020, Google confirmed that the production of Nest Secure were discontinued officially. Google did not explain the reason behind discontinuation of Nest Secure, but did confirm the continuation of the service for the existing users. However, on 7 April 2023, Google announced that the service would be shut down on 8 April 2024.",
+        "endOffset": 41151,
+        "startOffset": 37461
+      },
+      {
+        "index": 15,
+        "level": 3,
+        "title": "Nest Doorbell",
+        "value": "",
+        "endOffset": 43291,
+        "startOffset": 41151
+      },
+      {
+        "index": 16,
+        "level": 3,
+        "title": "Nest × Yale",
+        "value": "Nest × Yale is a smart lock produced in collaboration with Yale, released March 2018. It is connected to Nest Connect or Nest Guard. Powered by four AA batteries, the lock includes a terminal at bottom where a 9V battery can be connected for emergency access.",
+        "endOffset": 44092,
+        "startOffset": 43291
+      },
+      {
+        "index": 17,
+        "level": 3,
+        "title": "Nest Wifi",
+        "value": "",
+        "endOffset": 44135,
+        "startOffset": 44092
+      },
+      {
+        "index": 18,
+        "level": 3,
+        "title": "Nest Cam with Floodlight",
+        "value": "In 2021, Google announced the Nest Cam with Floodlight, a version of the Nest Cam Outdoor equipped with two floodlights, one on each side of the camera.",
+        "endOffset": 44375,
+        "startOffset": 44135
+      },
+      {
+        "index": 19,
+        "level": 2,
+        "title": "Works with Nest",
+        "value": "Works with Nest was a program that allowed third party devices to communicate with Nest products, such as virtual assistants, along with many third-party home automation platforms. Additionally, many smart device manufacturers have direct integration with the Nest platform, including Whirlpool and GE Appliances.\n\nOn May 7, 2019, it was announced that Works with Nest would be discontinued effective August 31, 2019. Users are being directed to migrate to Google accounts and Google Assistant integration instead; doing so will remove the ability to use Works with Nest. Google stated that this change was for security and privacy reasons; as third-party devices may only integrate with the Nest ecosystem via Google Assistant, they will be heavily restricted in the amount of personal data and access to devices they will have access to. Google stated that it would give \"a small number of thoroughly vetted partners\" access to additional data.\n\nThe change faced criticism for potentially resulting in a loss of functionality: vendors such as Lutron and SimpliSafe announced that their products' integration with the Nest platform (which allow them to be tied to the thermostat's home and away modes) would be affected by this change, while Google explicitly named IFTTT as a service that could not be integrated due to the amount of access it would need to operate. The Verge estimated that affected devices would also include Philips Hue, Logitech Harmony, Lutron lights, August Home, and Belkin Wemo switches. Furthermore, The Verge argued that this change created a closed platform, and would lead to fragmentation of the smart home market by potentially blocking integration with products that directly compete with those of Google.\n\nOn May 16, 2019, Google clarified its deprecation plans for Works with Nest: existing integrations will not be disabled after August 31, but users will no longer be able to add new ones, and the service will only receive maintenance updates going forward. Google also stated that it was working on replicating Nest platform functions as part of Assistant, such as integrating Nest's Home/Away triggers into the \"Routines\" system, and maintaining integration between Nest and Amazon Alexa.",
+        "endOffset": 49373,
+        "startOffset": 44375
+      },
+      {
+        "index": 20,
+        "level": 2,
+        "title": "Litigation",
+        "value": "In February 2012, Honeywell filed a lawsuit claiming that some of its patents had been infringed by Nest.\n\nIn April 2012, Nest stated they believe that none of the allegedly infringed patents were actually violated. Honeywell claimed that Nest infringed on patents pertaining to remotely controlling a thermostat, power-stealing thermostats, and thermostats designed around a circular, interactive design, similar to the Honeywell T87. However, Honeywell held patents that were almost identical to those that expired in 2004. Nest has taken the stance that they will see this through to patent court as they suspect Honeywell is trying to harass them, litigiously and financially, out of business.\n\nOn May 14, 2013, Allure Energy also filed a lawsuit, alleging infringement of a patent on an \"Auto-adaptable energy management apparatus\". First Alert sued Nest in 2014 in regards to voice alert functionality and a design trait of the Nest protect.\n\nIn 2016, Nest announced that the devices of Revolv customers would be bricked on May 15, as they were shutting down the necessary cloud software. Karl Bode and Emmanuel Malberg of Vice News compared the move to a remote deletion of purchased Xbox Fitness content by Microsoft. The Federal Trade Commission entered into an investigation of the matter.\n\nIn May 2016, an employee filed an unfair labor practice charge with the National Labor Relations Board against Nest and Google. In the charge, the employee alleged that he was terminated for posting information about Tony Fadell's poor leadership to a private Facebook page consisting of current and former employees. The charge also alleged that Nest and Google had engaged in unlawful surveillance and unlawful interrogation of employees in order to prevent them from discussing the work environment at Nest.",
+        "endOffset": 57370,
+        "startOffset": 49373
+      },
+      {
+        "index": 21,
+        "level": 3,
+        "title": "Parody after Google acquisition",
+        "value": "On May 7, 2014, German activist group Peng Collective released a parody website named Google Nest, satirizing Google's privacy policies and practices with fake products imitating Google art style, supposedly created as a result of \"an intensive period of studying user behavior\" in response to the \"public debate around privacy and government surveillance\". The site described four purported new services lampooning Google's data gathering tendencies made possible with Nest's technology: Google Trust, Google Hug, Google Bee and Google Bye, respectively a \"data insurance\" paid with personal data, a location service encouraging in-person emotional interactions, a \"personal drone\", and a memorial website created from automatically collected information.\n\nThe next day, Google trademark lawyers issued a cease-and-desist letter to Peng, asking them to change the site and to transfer the domain name to Google. The site replaced its content with a note explaining the situation, and the Electronic Frontier Foundation responded on behalf of Peng with a public letter saying that noncommercial political commentary is not prohibited under trademark law, and that the site would not likely be confused after the ample press coverage received.",
+        "endOffset": 57370,
+        "startOffset": 54061
+      },
+      {
+        "index": 22,
+        "level": 2,
+        "title": "Controversies",
+        "value": "Per the terms of service, Google will provide law enforcement with Nest data \"[i]f we reasonably believe that we can prevent someone from dying or from suffering serious physical harm...for example, in the case of bomb threats, school shootings, kidnappings, suicide prevention, and missing person cases.\" In certain situations, this may be done without a warrant.",
+        "endOffset": 58008,
+        "startOffset": 57370
+      },
+      {
+        "index": 23,
+        "level": 2,
+        "title": "See also",
+        "value": "* Internet of things\n* Machine learning\n* Android Things\n* X10\n* ecobee",
+        "endOffset": 58138,
+        "startOffset": 58008
+      },
+      {
+        "index": 24,
+        "level": 2,
+        "title": "References",
+        "value": "",
+        "endOffset": 58166,
+        "startOffset": 58138
+      },
+      {
+        "index": 25,
+        "level": 2,
+        "title": "Further reading",
+        "value": "*  Milestones:The CP/M Microcomputer Operating System, 1974 - Engineering and Technology History Wiki Legacy of Gary Kildall: The CP/M IEEE Milestone Dedication (33 pages)",
+        "endOffset": 59913,
+        "startOffset": 58166
+      },
+      {
+        "index": 26,
+        "level": 2,
+        "title": "External links",
+        "value": "* \n\n\n\n\nCategory:2010 establishments in California\nCategory:American companies established in 2010\nCategory:Companies based in Palo Alto, California\nCategory:Google acquisitions\nCategory:Home automation companies\nCategory:Applied machine learning\nCategory:Google hardware\nCategory:IOS software\nCategory:Android (operating system) software\nCategory:Internet of things companies\nCategory:2014 mergers and acquisitions\nCategory:Heating, ventilation, and air conditioning companies\nCategory:Smart home hubs",
+        "endOffset": 60640,
+        "startOffset": 59913
+      }
+    ],
+    "tables": [
+      {
+        "tableNum": 0,
+        "endOffset": 24215,
+        "tableData": [
+          [
+            "Model",
+            "Release Date"
+          ],
+          [
+            "Nest Learning Thermostat 1st Generation",
+            "October 25, 2011"
+          ],
+          [
+            "Nest Learning Thermostat 2nd Generation",
+            "October 2, 2012"
+          ],
+          [
+            "Nest Learning Thermostat 3rd Generation",
+            "September 1, 2015"
+          ],
+          [
+            "Nest Thermostat E",
+            "August 31, 2017"
+          ],
+          [
+            "Nest Thermostat",
+            "October 12, 2020"
+          ]
+        ],
+        "startOffset": 23634,
+        "tableCaption": null,
+        "tableContent": "Model                                  \tRelease Date\nNest Learning Thermostat 1st Generation\tOctober 25, 2011\nNest Learning Thermostat 2nd Generation\tOctober 2, 2012\nNest Learning Thermostat 3rd Generation\tSeptember 1, 2015\nNest Thermostat E                      \tAugust 31, 2017\nNest Thermostat                        \tOctober 12, 2020"
+      }
+    ]
+  }
+]

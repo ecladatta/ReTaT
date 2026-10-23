@@ -1,6 +1,6 @@
 __pycache__
 *.pyc
 output/
-*.json
-*.csv
-*.zip
+/*.json
+/*.csv
+/*.zip

@@ -1,0 +1,10 @@
+pid,label,description
+acquired_by,Acquired by,e2 purchases controlling stake in e1. The relation is directed. The inverted relation is best described by the same relation type.
+brand_of,Brand of,e2 offers products or services of e1 (Brand). The relation is directed. The inverted relation is best described by the same relation type.
+client_of,Client of,e1 uses (and presumably pays for) products or services offered by e2. The relation is directed. The inverted relation is best described by “Supplier of”.
+collaboration,Collaboration,e1 and e2 collaborate in (parts of their) business activities. The relation is undirected.
+merged_with,Merged with,e1 and e2 merged (parts of) their business activities. The relation is undirected.
+product_or_service_of,Product or service of,e1 is offered for commercial distribution by e2. The relation is directed. The inverted relation is best described by the same relation type.
+shareholder_of,Shareholder of,e1 owns shares in e2. The relation is directed. The inverted relation is best described by the same relation type.
+subsidiary_of,Subsidiary of,e2 legally owns e1. The relation is directed. The inverted relation is best described by “Parent of”.
+traded_on,Traded on,Shares of e1 are listed on e2 (Stock exchange). The relation is directed. The inverted relation is best described by “lists”.
