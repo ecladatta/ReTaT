@@ -13,6 +13,7 @@
     - [Evaluation Command-line Arguments](#evaluation-command-line-arguments)
     - [Evaluation Output](#evaluation-output)
   - [Workflow for TRIPLET Challenge](#workflow-for-triplet-challenge)
+  - [License](#license)
 
 ## Overview
 
@@ -149,3 +150,7 @@ Each metric includes `precision`, `recall`, and `f1` score.
    - `task2-train.zip`: Training dataset package.
    - `task2-test.zip`: Test dataset package.
    - `task2-groundtruth.zip`: Ground truth annotations for evaluation.
+
+## License
+
+Code is licensed under [Apache-2.0](LICENSE). The datasets under `data/` are licensed under [CC BY 4.0](data/LICENSE).
